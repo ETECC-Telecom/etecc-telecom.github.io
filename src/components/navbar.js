@@ -42,7 +42,7 @@ export class NavBar extends HTMLElement {
                                 <a class="nav-link" href="/paginas/hierarquiaos.html">Hierarquia de OS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/paginas/Troubleshooting.html">Troubleshooting</a>
+                                <a class="nav-link" href="/paginas/troubleshooting.html">Troubleshooting</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/paginas/consulta_vlan.html">Consultar VLAN</a>
