@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enviar para Google Sheets</title>
+</head>
+<body>
+
+    <form id="meuFormulario">
+        <input type="text" id="nome" placeholder="Nome" required><br>
+        <input type="text" id="email" placeholder="Email" required><br>
+        <button type="submit">Enviar Dados</button>
+    </form>
+
+    <script>
+        const SPREADSHEET_ID = '1LeuIPXy4-29mCn7v-ImonCAhw6PRkuDBKUPFAWGKnWU';
+        const RANGE = '"Manutenção das Motos"!A2'; // Nome da aba e célula inicial
+        const API_KEY = 'AIzaSyBlu57Ts9xhZL--ljT1iujsuEW_b3hZwAM';
+
+        document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+
+            // Organiza os dados como uma linha (array de arrays)
+            const valores = [
+                [new Date().toLocaleString(), nome, email]
+            ];
+
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}:append?valueInputOption=USER_ENTERED&key=${API_KEY}`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    values: valores
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Sucesso:', data);
+                alert('Dados enviados com sucesso!');
+            })
+            .catch((error) => {
+                console.error('Erro:', error);
+                alert('Erro ao enviar dados.');
+            });
+        });
+    </script>
+</body>
+</html>

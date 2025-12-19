@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (Lentidão/OScilação)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+
+        <div class="row">
+
+            <h1>Troubleshooting (Lentidão/OScilação)</h1>
+            <hr>
+            
+            <h2>1. Escuta Ativa e Diagnóstico Inicial</h2>
+
+            <p>
+                Antes de abrir a mala de ferramentas, entenda o cenário:
+            </p>
+            <ul>
+                <li><b>Demonstração:</b> Peça ao cliente para demonstrar a falha. É em um app específico (<i>IPTV</i>)? É em um cômodo específico?</li>
+                <li><b>Perfil do Uso:</b> Identifique se a dificuldade é em uma TV Box, Console ou Home Office.</li>
+                <li><b>Histórico:</b> O problema é constante ou tem hora marcada?</li>
+            </ul>
+            
+            <h2>2. Inspeção Física (<i>Camada 1</i>)</h2>
+
+            <p>
+                Não confie no que parece estar funcionando. Teste:
+            </p>
+            <ul>
+                <li><b>Energia:</b> Verifique a amperagem da fonte e faça o teste mecânico (<i>balance o conector para ver se há mau contato</i>).</li>
+                <li><b>Cabeamento:</b> Troque o cabo WAN/LAN para teste. Um cabo 5e mal crimpado pode limitar a rede a 100 Mbps (<i>Fast</i>).</li>
+                <li><b>Fibra:</b> Valide a potência óptica (<i>deve estar no padrão operacional</i>).</li>
+                <li><b>Localização:</b> Verifique se o roteador está em locais proibidos (<i>áreas externas sem paredes, dentro de armários metálicos ou atrás de TVs</i>).</li>
+            </ul>
+            
+            <h2>3. Validação Lógica e Configuração</h2>
+                <ul>
+                    <li><b>Configurações:</b> Revise DNS (<i>IPv4 e IPv6</i>) e a Largura de Banda do Wi-Fi (20/40/80 MHz).</li>
+                    <li><b>Testes de Performance:</b></li>
+                    <ol>
+                        <li>Realize <b>Ping e Tracert</b> via cabo (<i>RJ45</i>).</li>
+                        <li>Teste de velocidade no Cabo vs. Wi-Fi.</li>
+                        <li>Anexe prints de testes feitos nos próprios dispositivos do cliente (<i>se possível</i>).</li>
+                    </ol>
+                    <li><b>Ciclo de Reset:</b> Desligue o ativo por <b>2 minutos</b> e reinicie antes dos testes finais</li>
+                </ul>
+            
+            <h2>4. Protocolo Obrigatório de Wi-Fi Survey (<i>Mapa de Calor</i>)</h2>
+
+            <p>
+                <b>Atenção</b>: Em casos de OSCILAÇÃO, o Mapa de Calor é <b>OBRIGATÓRIO</b>.
+            </p>
+            <ul>
+                <li><b>Quando fazer:</b> Sempre na chegada (<i>para diagnosticar</i>) e sempre após qualquer troca de equipamento (<i>para validar</i>).</li>
+                <li><b>Tagging Obrigatório:</b> Nomeie os mapas (<i>ex: _Térreo - Antes da Troca_</i>) e identifique cada cômodo (<i>Sala, Quarto 1</i>) e dispositivos críticos (<i>TV Box</i>).</li>
+                <li><b>Análise de Sombra:</b> Se identificar pontos cegos, instrua o cliente sobre a necessidade de pontos adicionais (<i>Mesh</i>).</li>
+            </ul>
+            
+            <h2>5. Padrão de Escrita e Encerramento (OS)</h2>
+
+            <p>
+                A qualidade da sua baixa na OS é o que evita reincidências e auditorias negativas.
+            </p>
+            <ul>
+                <li><b>Descreva o Anexo:</b> Não suba apenas a foto. Escreva: _"Ping apresentando 150ms de latência no servidor X, estabilizado após troca de fonte"_.</li>
+                <li><b>Relato de Defeito:</b> Se houver falha física (<i>ex: antena frouxa</i>), relate explicitamente no texto.</li>
+                <li><b>Orientações ao Cliente:</b> Informe ao cliente tudo o que foi testado. Se a falha for externa ou de conteúdo (<i>app</i>), deixe-o ciente.</li>
+            </ul>
+            
+            <h2>Normas de Conduta (Notas Técnicas)</h2>
+            <ul>
+                <li><b>Ativos do Cliente:</b> <b>NÃO</b> instale drivers, não altere configurações de rede e não manipule equipamentos (como retirar TVs de painéis). No máximo, ajuste Data/Hora em TV Box.</li>
+                <li><b>Troca de Equipamento:</b> Só é permitida após a troca da fonte, do cabo de rede e o ciclo de energia de 2 minutos. Se o problema persistir após a troca, <b>escale para a supervisão</b>.</li>
+            </ul>
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="19/12/2025"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
