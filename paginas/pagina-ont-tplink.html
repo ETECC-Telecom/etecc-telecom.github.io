@@ -137,8 +137,66 @@
                 <h2 id="Sumario-10">Desabilitar Linha Voip</h2>
                 <hr>
 
-                <h2 id="Sumario-11">Apontamento de Porta</h2>
+                <h2 id="Sumario-11">Apontamento de Porta e Acesso remoto de Segundo Ponto</h2>
                 <hr>
+
+                <p>
+                    Este artigo descreve o procedimento técnico para configurar o <b>acesso remoto</b> em um roteador secundário que funciona como ponto adicional em uma rede TP-Link. O objetivo central é permitir que o roteador principal redirecione o tráfego de gerenciamento para o roteador secundário, facilitando o suporte e a administração da rede de forma externa.
+                </p>
+                
+                <h2>Configuração Técnica e Integração entre Roteadores</h2>
+
+                <p>
+                    O processo de configuração inicia-se diretamente na interface do <b>roteador secundário</b>, que atuará como o ponto adicional da rede. Dentro do menu de <i>configurações avançadas</i>, na seção de <i>ferramentas do sistema e administração</i>, é fundamental habilitar o gerenciamento remoto. O ponto crucial nesta etapa é a definição da porta de comunicação, sendo recomendado o uso da <b>porta 9987</b> no nosso caso aqui na ETECC, usamos o <b>8080</b> ou <b>8081</b>, além da ativação do protocolo HTTPS para garantir a segurança no acesso. Nesse momento, aproveita-se também para definir as credenciais de acesso e o nome da rede Wi-Fi conforme a preferência do usuário final.
+                </p>
+                <br>
+                <img class="img-fluid" src="/static/Imagens/Pasted image 20251222152254.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <br>
+                <br>
+
+                <p>
+                    Após preparar o equipamento secundário, a configuração deve ser finalizada no <b>roteador primário</b>, que é o dispositivo conectado diretamente à internet via PPPoE. A primeira ação necessária no roteador principal é a <b>reserva de endereço IP</b> para o roteador secundário. Como o IP é atribuído via DHCP, ele pode mudar caso o aparelho seja reiniciado, o que interromperia o acesso remoto.
+                </p>
+                <br>
+                <img class="img-fluid" src="/static/Imagens/Pasted image 20251222152430.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <br>
+                <br>
+
+                <p>
+                    Ao identificar o roteador secundário na lista de clientes cabeados, o administrador deve fixar esse IP nas configurações de rede (LAN), garantindo que o dispositivo sempre receba o mesmo endereço lógico.
+                </p>
+                <br>
+                <img class="img-fluid" src="/static/Imagens/Pasted image 20251222152730.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <br>
+                <br>
+
+                <p>
+                    Com o IP devidamente reservado, o passo final consiste no <b>direcionamento de portas</b> (<i>Port Forwarding</i>) através das configurações de NAT ou servidores virtuais no roteador principal. Deve-se criar uma nova regra de serviço, que pode ser nomeada como "Segundo Ponto", vinculando a porta externa e a porta interna 9987 (<i>8080 ou 8081 como padrão da ETECC</i>) ao endereço IP que foi previamente reservado para o roteador secundário. Ao selecionar o protocolo para "Todos" e salvar as alterações, a ponte de comunicação estará estabelecida.
+                </p>
+                <br>
+                <img class="img-fluid" src="/static/Imagens/Pasted image 20251222152954.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <br>
+                <br>
+                
+                <h2>Exemplos práticos</h2>
+
+                <p>
+                    Para ilustrar o procedimento de reserva e redirecionamento, as fontes apresentam o seguinte cenário aplicado:
+                </p>
+                <ul>
+                    <li><b>Identificação do Dispositivo</b>: No roteador principal, ao verificar os "Clientes Cabeados", identifica-se que o roteador secundário recebeu, por exemplo, o IP <b>192.168.0.101</b>.</li>
+                    <li><b>Reserva de Endereço</b>: Nas configurações de rede LAN, adiciona-se este IP (192.168.0.101) à lista de reserva, vinculando-o permanentemente ao hardware do segundo roteador.</li>
+                    <li><b>Regra de NAT</b>: No servidor virtual, preenche-se a porta externa como <b>9987</b> (<i>8080 ou 8081 pelo padrão ETECC</i>), a porta interna como <b>9987</b> (<i>8080 ou 8081 pelo padrão ETECC</i>) e o IP do servidor como <b>192.168.0.101</b>, consolidando o caminho para o acesso remoto.</li>
+                </ul>
+                <h2>Conclusão</h2>
+
+                <p>
+                    A configuração de acesso remoto em um segundo ponto TP-Link exige uma ação coordenada entre os dois dispositivos da rede. Enquanto no roteador secundário a prioridade é a liberação da porta de gerenciamento e do protocolo de segurança, no roteador principal o foco reside na estabilidade do endereço IP e no correto direcionamento do tráfego através do NAT. Seguindo esses passos, assegura-se que o administrador possa acessar a interface de configuração do ponto adicional de qualquer local, mantendo a integridade e a funcionalidade da rede doméstica ou empresarial.
+                </p>
+
+                <p>
+                    Para visualizar este processo de forma simplificada, imagine que o roteador principal é o porteiro de um prédio e o secundário é um apartamento específico. A reserva de IP garante que o apartamento nunca mude de número, e o redirecionamento de porta é como dar ao porteiro a instrução exata de que qualquer visitante que pergunte pelo "serviço 8080" deve ser encaminhado diretamente àquele apartamento, sem interrupções.
+                </p>
 
                 <btn-topo></btn-topo>
 
@@ -146,7 +204,7 @@
         </div>
     </div>
     
-    <etecc-revisao version="000" author="Raphael dos Anjos" date="10/10/2025"></etecc-revisao>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="22/12/2025"></etecc-revisao>
 
     <etecc-footer></etecc-footer>
     <script src="/src/copiar_transferencia.js"></script>
