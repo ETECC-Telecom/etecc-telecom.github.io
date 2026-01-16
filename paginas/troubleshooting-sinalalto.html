@@ -25,51 +25,116 @@
     <etecc-navbar></etecc-navbar>
 
     <div class="container mt-5">
-
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sinal Alto</li>
+            </ol>
+        </nav>
         <div class="row">
 
-            <h1>Troubleshooting (Sinal Alto)</h1>
+            <h1>Sinal Alto (Alta Atenuação ou Sinal Fraco)</h1>
             <hr>
+            
+            <h2>Preparação e Segurança</h2>
+            <ul>
+                <li><b>Equipamento:</b> Certifique-se de estar com Power Meter calibrado e VFL (<i>Caneta Laser</i>) funcional.</li>
+                <li><b>Limpeza:</b> Antes de medir, limpe os conectores com álcool isopropílico ou fita de limpeza.</li>
+            </ul>
+            <h2>Fluxo de Diagnóstico Passo a Passo</h2>
+
             <p>
-                Este guia deve ser seguido quando o Power Meter indicar valores fora do padrão operacional (<i>ex: acima de -27 dBm</i>), o que causa instabilidade ou queda total.
+                Este guia deve ser seguido quando o Power Meter indicar valores fora do padrão operacional (<i>ex: acima de -25 dBm</i>), o que causa instabilidade ou queda total.
             </p>
-            <ol>
-            <li><b>Validação na CTO (<i>Lado Externo</i>):</b></li>
-                <ul>
-                    <li>Meça o sinal diretamente na porta da CTO antes de mexer na casa do cliente em caso de <b>Apartamento</b>.</li>
-                    <li><b>Cenário A:</b> Sinal já sai ruim da CTO. <b>Ação</b> Relate na OS com foto e acione a equipe de Caixa imediatamente.</li>
-                    <li><b>Cenário B:</b> Sinal na CTO está normal. <b>Ação</b> O problema está entre a CTO e a ONU do cliente. Prossiga.</li>
-                </ul>
 
-            <li><b>Inspeção do Drop (<i>Ponto de Entrada</i>):</b></li>
-                <ul>
-                    <li>Meça o sinal na ponta do Drop.</li>
-                    <li><b>Limpeza Crítica:</b> Limpe a ponta da fibra e o acoplador. Poeira é a maior causa de atenuação.</li>
-                    <li><b>Re-conectorização:</b> Se a limpeza não resolver, refaça o conector mecânico.</li>
-                    <li><b>Cenário Falho</b>: Se após os processos acima não tenham resolvido o problema, encaminha para Equipe Externa.</li>
-                </ul>
+            <p>
+                <b>INSPEÇÃO EXTERNA VISUAL:</b>
+            </p>
 
-            <li><b>Validação do Patch Cord (<i>Cordão Óptico</i>):</b></li>
+            <p>
+                Verifique visualmente o Drop desde a CTO até a entrada da residência.
+            </p>
+
+            <p>
+                <b>Atenção:</b> Procure por dobras acentuadas ou pontos de atrito.
+            </p>
+
+            <p>
+                <b>MEDIÇÃO DE POTÊNCIA (<i>POWER METER</i>):</b>
+            </p>
+
+            <p>
+                Meça o sinal na ponta do Drop. O padrão ideal deve estar entre <b>-15 dBm e -25 dBm</b> (<i>dependendo da rede</i>).
+            </p>
+            <ul>
+                <li><b>Sinal Alto (<i>ex: -30 dBm</i>):</b> Sujeira ou curvatura. Limpe e re-conectorize.</li>
+                <li><b>Limpeza Crítica:</b> Limpe a ponta da fibra e o acoplador. Poeira é a maior causa de atenuação. Em caso de normalização apenas no Drop, e reincidência no cordão óptico, troque o acoplador (<i>Emenda</i>). </li>
+                <li><b>Ação:</b> Caso não tenha sido normalizado, após procedimentos, <b>encaminhe para a externa</b>. </li>
+            </ul>
+            <p>
+                <b>VALIDAÇÃO DO PATCH CORD:</b>
+            </p>
+
+            <p>
+                Se o sinal no Drop está OK, mas na ONU/ONT não, o problema é o cordão óptico.
+            </p>
+
+            <p>
+                <b>Ação:</b> Passe o laser no Pathcord para validar rompimento, trinca ou atenuação. Em caso de falhas, realize a substituição do cordão óptico. Qualquer suspeita ou sinal de trinca, <b>substitua o Patch Cord</b>. Não tente recuperar cordões danificados.
+            </p>
+
+            <p>
+                <b>VALIDAÇÃO DO EQUIPAMENTO:</b>
+            </p>
+
+            <p>
+                Foi validado tanto o Drop quanto cordão óptico, e ambos estão dentro do padrão, mas sinal continua Alto na ONU/ONT. Nesses casos temos uma falha no equipamento:
+            </p>
+
+            <p>
+                <b>Ação:</b> Realize a <b>limpeza na emenda óptica</b> do aparelho, e caso não resolva, faça a <b>substituição</b> do mesmo em caso de <b>comodato</b>.
+            </p>
+            <div class="alert alert-success mt-3" role="alert">
+                <h5 class="alert-heading">Boas Práticas</h5>
+                <p>
+                    Após normalizar sinal, é sempre válido fazer além da checagem física, uma checagem lógica do sinal, seja pelo Etecc Instalador, ou pelo suporte interno para validar o sinal em sistema.
+                </p>                
+            </div>
+        
+            <p>
+                <b>FINALIZAÇÃO DA OS:</b>
+            </p>
+
+            <p>
+                Caso o sinal tenha sido normalizado, vamos realizar a finalização ideal da OS.
+            </p>
+            <ul>
+                <li><b>Teste de Velocidade</b>: Realize um teste de velocidade no Wifi ou Cabo para validar navegação no local (<i>Anexe a foto na Baixa da OS</i>).</li>
+                <li><b>Teste de Fibra</b>: Anexe a foto do sinal de Fibra na baixa da OS.</li>
+                <li><b>Escuta Ativa:</b> Pergunte sobre a estabilidade do Wi-Fi ou na conexão geral, bem como duvidas que o cliente possa possuir no momento da visita. Se o cliente relatara alguma dificuldade, levante os testes de lentidão, como:</li>
                 <ul>
-                    <li>Verifique o cordão interno que liga a roseta/acoplador à ONU.</li>
-                    <li><b>Teste do Laser:</b> Use o VFL (<i>caneta laser</i>) para identificar "vazamentos" de luz no cordão ou dobras apertadas dentro da caixa de passagem.</li>
-                    <li><b>Ação:</b> Em caso de qualquer suspeita ou sinal de trinca, <b>substitua o Patch Cord</b>. Não tente recuperar cordões danificados.</li>
+                    <li><b>Wi-Fi Survey:</b> Verifique se o nível de sinal Wi-Fi nos cômodos é satisfatório após a normalização da fibra.</li>
+                    <li><b>Ping e Tracert</b></li>
                 </ul>
-                    
-            <li><b>Finalização e Testes de Qualidade:</b></li>
-                <ul>    
-                    <li>Com o sinal normalizado (<i>ex: -20 dBm</i>), realize:</li>
-                    <ul>
-                        <li><b>Teste de Stress:</b> Teste de banda (<i>Down/Up</i>), Ping para garantir largura de que não há perda de pacotes e Tracert.</li>
-                        <li><b>Wi-Fi Survey:</b> Verifique se o nível de sinal Wi-Fi nos cômodos é satisfatório após a normalização da fibra.</li>
-                    </ul>
-                </ul>
-                    
-            </ol>
+            </ul>
+            <p>
+                <b>ENCAMINHAR PARA EXTERNA:</b>
+            </p>
+
+            <p>
+                O encaminhamento para externa é feito na finalização da OS. Após isso, com o nome do cliente em mãos, envie uma mensagem no grupo "<i>Etecc - Equipe Técnica</i>" com a seguinte mensagem: "<i>Cliente nome_cliente, Necessário encaminhar Equipe Externa</i>".
+            </p>
+
+
+
+
+
+
            
         </div>
     </div>
-    <etecc-revisao version="001" author="Raphael dos Anjos" date="19/12/2025"></etecc-revisao>
+    <etecc-revisao version="002" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
 
     <etecc-footer></etecc-footer>
 

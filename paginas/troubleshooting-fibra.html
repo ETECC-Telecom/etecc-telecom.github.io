@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Fibra</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Fibra - Validando a Fibra do Cliente</h1>
+            <hr>
+            <h4>Fibra</h4>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>
+                        Primeiro devemos checar o Sinal da Fibra para verificar se não temos atenuação de Sinal, sempre dando preferência para o Pathcord (<i>cordão óptico</i>), e em caso de sinal alto, validar se o cordão não está atenuado, e posteriormente verificar sinal diretamente no Drop. 
+                    </p>
+                    <p>
+                        O Sinal esperado é sempre entre <b>-15</b> a <b>-25</b> em <b>1490nm</b> passou disso, devemos realizar a limpeza do conector e se não resolver, realizamos a troca.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="/static/Imagens/powermittertestefibra.webp" class="img-fluid rounded-3" alt="Medidor de Potência Óptica">
+                </div>
+            </div>
+
+            <h5 class="mt-3">Teste de Cordão Óptico</h5>
+            <p>
+                Quando temos uma Atenuação no Pathcord, porém no drop o sinal está normalizado, podemos checar se o mesmo está atenuado, ou seja, com alguma dobra aparente extrema, como podemos ver na imagem, onde o Pathcord além de atenuado está emaranhado com outros cabos. 
+            </p>
+            <p>
+                Agora, está tudo certo aonde não foi identificado nenhuma atenuação, ai devemos bater o laser para checar um rompimento ou trinca interna na fibra. Quando fazemos isso uma luz vermelha extrema é destacada no corpo do cordão óptico, como pode ver na imagem.
+            </p>
+            <div class="row">
+                <div class="col-sm-6 p-2">
+                    <img src="/static/Imagens/pathcordemaranhadoatenuado.webp" class="img-fluid rounded-3" alt="Medidor de Potência Óptica">
+                </div>
+                <div class="col-sm-6 p-2">
+                    <img src="/static/Imagens/pathcordrompimentointerno.webp" class="img-fluid rounded-3" alt="Medidor de Potência Óptica">
+                </div>
+            </div>
+
+            <h5>Boas Práticas com Pathcord</h5>
+
+            <p>
+                O ideal no que desrespeito ao cordão óptico, é sempre mantê-lo enrolado em seu próprio filamento com um diâmetro superior a <b>10cm</b> ou mais.  De de preferência com fixador de cada lado, seja um arame enrolado, ou uma fita isolante (<i>dê preferência para a fita isolante sempre</i>).
+            </p>
+            <p>
+                Nas imagens a baixo, podemos ver um exemplo onde o cordão foi enrolado e preso com dois arames de cada lado para impedir o mesmo de enrolar em si e atenuar. E no outro exemplo, o cordão foi enrolado para trás da ONT, o que permite proteger ainda mais o cordão, embora não seja esteticamente agradável. 
+            </p>
+
+            <div class="row">
+                <div class="col-sm-6 p-2">
+                    <img src="/static/Imagens/cordaoenroladocorretamente.webp" class="img-fluid rounded-3" alt="Medidor de Potência Óptica">
+                </div>
+                <div class="col-sm-6 p-2">
+                    <img src="/static/Imagens/cordaoenroladoatrasdaont.webp" class="img-fluid rounded-3" alt="Medidor de Potência Óptica">
+                </div>
+            </div>
+
+            <h2>Exemplos de problemas de Fibra</h2>
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                </div>
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner rounded-4">
+                    <div class="carousel-item active">
+                        <img src="/static/Imagens/Slides/slide_fibra_g78.webp" alt="Los Angeles" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>Sinal Alto</h3>
+                            <p>Exemplo de Sinal Alto no Powermitter de -27dbm!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/Imagens/Slides/slide_fibra_g79.webp" alt="Los Angeles" class="d-block w-100">
+                        <div class="carousel-caption bg-dark rounded-4">
+                            <h3>Rompimento Interno</h3>
+                            <p>Cordão Óptico (Pathcord) com um rompimento interno!</p>
+                        </div>  
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/Imagens/Slides/slide_fibra_g80.webp" alt="Los Angeles" class="d-block w-100">
+                        <div class="carousel-caption bg-dark rounded-4">
+                            <h3>Atenuação</h3>
+                            <p>Exemplo de um Cordão Óptico extremamente atenudado (dobrado)!</p>
+                        </div>  
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/Imagens/Slides/slide_fibra_g81.webp" alt="Los Angeles" class="d-block w-100">
+                        <div class="carousel-caption bg-dark rounded-4">
+                            <h3>Fusão na PTO</h3>
+                            <p>Caso extremamente atipico. Em caso de rompimento, encaminhar externa direto!</p>
+                        </div>  
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/Imagens/Slides/slide_fibra_g82.webp" alt="Los Angeles" class="d-block w-100">
+                        <div class="carousel-caption bg-dark rounded-4">
+                            <h3>LOS</h3>
+                            <p>Exemplo de LOS!</p>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

@@ -23,15 +23,21 @@
     <etecc-head></etecc-head>
 
     <etecc-navbar></etecc-navbar>
-
+    <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Lentidão/Oscilação</li>
+            </ol>
+        </nav>
     <div class="container mt-5">
 
         <div class="row">
 
-            <h1>Troubleshooting (Lentidão/OScilação)</h1>
+            <h1>Lentidão ou Oscilação</h1>
             <hr>
             
-            <h2>1. Escuta Ativa e Diagnóstico Inicial</h2>
+            <h2>Escuta Ativa e Diagnóstico Inicial</h2>
 
             <p>
                 Antes de abrir a mala de ferramentas, entenda o cenário:
@@ -41,61 +47,99 @@
                 <li><b>Perfil do Uso:</b> Identifique se a dificuldade é em uma TV Box, Console ou Home Office.</li>
                 <li><b>Histórico:</b> O problema é constante ou tem hora marcada?</li>
             </ul>
-            
-            <h2>2. Inspeção Física (<i>Camada 1</i>)</h2>
+            <h2>Inspeção Física (Camada 1)</h2>
 
             <p>
                 Não confie no que parece estar funcionando. Teste:
             </p>
             <ul>
-                <li><b>Energia:</b> Verifique a amperagem da fonte e faça o teste mecânico (<i>balance o conector para ver se há mau contato</i>).</li>
-                <li><b>Cabeamento:</b> Troque o cabo WAN/LAN para teste. Um cabo 5e mal crimpado pode limitar a rede a 100 Mbps (<i>Fast</i>).</li>
-                <li><b>Fibra:</b> Valide a potência óptica (<i>deve estar no padrão operacional</i>).</li>
+                <li><b>Energia:</b> Verifique a amperagem da fonte e faça o teste mecânico (<i>balance o conector para ver se há mau contato</i>). Caso as amperagens sejam diferentes, efetua a troca da fonte. </li>
+                <li><b>Cabeamento:</b> Realize a Checagem das Pontas do Cabo de Rede, e em casos extremos, Troque o cabo WAN/LAN para teste. Um cabo 5e mal crimpado pode limitar a rede a 100 Mbps (Fast).</li>
+                <li><b>Fibra:</b> Valide a potência óptica (<i>deve estar no padrão operacional</i>). Procure por atenuações que podem causar Sinal Alto, e faça a limpeza dos conectores caso seja necessário;</li>
                 <li><b>Localização:</b> Verifique se o roteador está em locais proibidos (<i>áreas externas sem paredes, dentro de armários metálicos ou atrás de TVs</i>).</li>
             </ul>
-            
-            <h2>3. Validação Lógica e Configuração</h2>
-                <ul>
-                    <li><b>Configurações:</b> Revise DNS (<i>IPv4 e IPv6</i>) e a Largura de Banda do Wi-Fi (20/40/80 MHz).</li>
-                    <li><b>Testes de Performance:</b></li>
-                    <ol>
-                        <li>Realize <b>Ping e Tracert</b> via cabo (<i>RJ45</i>).</li>
-                        <li>Teste de velocidade no Cabo vs. Wi-Fi.</li>
-                        <li>Anexe prints de testes feitos nos próprios dispositivos do cliente (<i>se possível</i>).</li>
-                    </ol>
-                    <li><b>Ciclo de Reset:</b> Desligue o ativo por <b>2 minutos</b> e reinicie antes dos testes finais</li>
-                </ul>
-            
-            <h2>4. Protocolo Obrigatório de Wi-Fi Survey (<i>Mapa de Calor</i>)</h2>
+            <h2>Validação Lógica e Configuração</h2>
 
             <p>
-                <b>Atenção</b>: Em casos de OSCILAÇÃO, o Mapa de Calor é <b>OBRIGATÓRIO</b>.
+                <b>CONFIGURAÇÕES</b> 
             </p>
             <ul>
-                <li><b>Quando fazer:</b> Sempre na chegada (<i>para diagnosticar</i>) e sempre após qualquer troca de equipamento (<i>para validar</i>).</li>
-                <li><b>Tagging Obrigatório:</b> Nomeie os mapas (<i>ex: _Térreo - Antes da Troca_</i>) e identifique cada cômodo (<i>Sala, Quarto 1</i>) e dispositivos críticos (<i>TV Box</i>).</li>
+                <li><b>Quantidade de Ativos Conectados</b> (<i>Se passar da quantidade esperada</i>);</li>
+                <li><b>Tempo de atividade do aparelho</b> (<i>Se ultrapassar o esperado - maior que 7 dias</i>);</li>
+                <li><b>Atualização do Ativo</b> - Verificar se o Router esta atualizado (_huawei atualiza automático, basta checar se está atualizado na página de atualização_);</li>
+                <li><b>Revise DNS</b> (IPv4 e IPv6) - Ativar (<i>caso esteja DHCPV6, mudar para SLAAC e reiniciar ativos para aplicar configuração</i>);</li>
+                <li><b>Largura de Banda do Wi-Fi</b> - Automático (<i>tanto na rede 2.4 quanto 5G</i>) a menos que haja a necessidade de alteração;</li>
+                <li><b>IPV6</b> em modo Slac;</li>
+                <li><b>UPNP Habilitado</b> - Separa as portas de trás do roteador, para que cada cabo trabalhe melhor. Ativar caso esteja desabilitado;</li>
+                <li><b>Acesso Remoto Habilitado</b> (<i>Validar com a interna se está funcionando após configurado - principalmente se foi solicitado verificar acesso remoto</i>).</li>
+                <li><b>Verificar o histórico de conexão</b> - A limpeza do histórico de dispositivos desconectados (<i>offlines</i>) em um roteador Wi-Fi pode ter algum ganho. Esses são os casos em que a limpeza realmente ajuda: Liberação de memória interna, Redução de bugs de DHCP, Evita conflito de nomes e IPs.</li>
+            </ul>
+            <p>
+                <b>TESTES DE PERFORMANCE:</b>
+            </p>
+            <ol>
+                <li>Realize <b>Ping e Tracert</b> via Cabo de Rede (<i>Tanto no ponto principal, quanto pontos paralelos estruturados pela empresa</i>).</li>
+                <li>Teste de velocidade no Cabo vs. Wi-Fi.</li>
+                <li>Anexe prints de testes feitos nos próprios dispositivos do cliente (<i>quando for possível</i>).</li>
+                <li><b>Ciclo de Reset:</b> Desligue o ativo por <b>2 minutos</b> e reinicie antes dos testes finais</li>
+            </ol>
+            <p>
+                <b>APENAS FIQUE DE OLHO NAS VERSÕES DOS ATIVOS:</b>
+            </p>
+            <ul>
+                <li><b>Roteador Huawei (<i>AX2</i>):</b>Atualiza Automático, checar na página de Atualização.</li>
+                <li><b>Roteador Huawei (<i>WS5200</i>):</b>Atualiza Automático, checar na página de Atualização.</li>
+                <li><b>Ont huawei ax6 (<i>ONU Roteada</i>):</b>não precisa de atualização.</li>
+                <li><b>Ont huawei ax6-10 (<i>ONU Roteada</i>):</b>final 265</li>
+                <li><b>Roteador Intelbras (<i>IWR3000n</i>):</b>1.9.8</li>
+                <li><b>Roteador TP Link (<i>Archer C5</i>):</b>200427</li>
+            </ul>
+            <h2>Protocolo Obrigatório de Wi-Fi Survey (Mapa de Calor)</h2>
+
+            <p>
+                <b>Atenção:</b> Em casos de OSCILAÇÃO, o Mapa de Calor é <b>OBRIGATÓRIO</b>.
+            </p>
+            <ul>
+                <li><b>Quando fazer:</b> Sempre na chegada (para diagnosticar) e sempre após qualquer troca de equipamento (para validar).</li>
+                <li><b>Tagging Obrigatório:</b> Nomeie os mapas (ex: <i>Térreo - Antes da Troca</i>) e identifique cada cômodo (<i>Sala, Quarto 1</i>) e dispositivos críticos (<i>TV Box</i>).</li>
                 <li><b>Análise de Sombra:</b> Se identificar pontos cegos, instrua o cliente sobre a necessidade de pontos adicionais (<i>Mesh</i>).</li>
             </ul>
-            
-            <h2>5. Padrão de Escrita e Encerramento (OS)</h2>
+            <h2>Padrão de Escrita e Encerramento (<i>OS</i>)</h2>
 
             <p>
                 A qualidade da sua baixa na OS é o que evita reincidências e auditorias negativas.
             </p>
             <ul>
-                <li><b>Descreva o Anexo:</b> Não suba apenas a foto. Escreva: _"Ping apresentando 150ms de latência no servidor X, estabilizado após troca de fonte"_.</li>
+                <li><b>Descreva o Anexo:</b> Não suba apenas a foto. Escreva: <i>"Ping apresentando 150ms de latência no servidor X, estabilizado após troca de fonte"</i>.</li>
                 <li><b>Relato de Defeito:</b> Se houver falha física (<i>ex: antena frouxa</i>), relate explicitamente no texto.</li>
                 <li><b>Orientações ao Cliente:</b> Informe ao cliente tudo o que foi testado. Se a falha for externa ou de conteúdo (<i>app</i>), deixe-o ciente.</li>
+                <li><b>Educando o Cliente:</b> Além de passar o que foi realizado na casa do cliente, explique ao mesmo alguns conceitos básicos que podem afetar sua navegação como:</li>
+                <ul>    
+                    <li>Diferença da Rede 2.4 e 5G;</li>
+                    <li>Necessidade de reiniciar o Router; </li>
+                    <li>Problemas com IPTV e TVBox;</li>
+                    <li>Problemas no uso de Repetidores.</li>
+                </ul>
             </ul>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <h5 class="alert-heading">Educando o Cliente:</h5>
+                <p>
+                    No script de OS's que estamos utilizando agora no ano de 2026, existe uma checklist completa de informações que o técnico pode passar ao cliente para melhorar sua experiência com o uso de nossa rede.
+                </p>                
+            </div>
             
             <h2>Normas de Conduta (Notas Técnicas)</h2>
             <ul>
-                <li><b>Ativos do Cliente:</b> <b>NÃO</b> instale drivers, não altere configurações de rede e não manipule equipamentos (como retirar TVs de painéis). No máximo, ajuste Data/Hora em TV Box.</li>
+                <li><b>Ativos do Cliente:</b> <b>NÃO</b> instale drivers, não altere configurações de rede e não manipule equipamentos (<i>como retirar TVs de painéis</i>). No máximo, ajuste Data/Hora em TV Box.</li>
                 <li><b>Troca de Equipamento:</b> Só é permitida após a troca da fonte, do cabo de rede e o ciclo de energia de 2 minutos. Se o problema persistir após a troca, <b>escale para a supervisão</b>.</li>
             </ul>
+
+        
+
         </div>
     </div>
-    <etecc-revisao version="001" author="Raphael dos Anjos" date="19/12/2025"></etecc-revisao>
+    <etecc-revisao version="002" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
 
     <etecc-footer></etecc-footer>
 

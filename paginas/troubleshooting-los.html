@@ -23,45 +23,115 @@
     <etecc-head></etecc-head>
 
     <etecc-navbar></etecc-navbar>
-
+    <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">LOS</li>
+            </ol>
+        </nav>
     <div class="container mt-5">
 
         <div class="row">
 
-            <h1>Troubleshooting (LOS)</h1>
+            <h1>LOS Loss of Signal</h1>
             <hr>
-            <h2>1. Preparação e Segurança</h2>
+            
+            <h2>Preparação e Segurança</h2>
             <ul>
                 <li><b>Equipamento:</b> Certifique-se de estar com Power Meter calibrado e VFL (<i>Caneta Laser</i>) funcional.</li>
                 <li><b>Limpeza:</b> Antes de medir, limpe os conectores com álcool isopropílico ou fita de limpeza.</li>
             </ul>
-            <h2>2. Fluxo de Diagnóstico Passo a Passo</h2>
-            <ol>
-                <li><b>Inspeção Externa Visual:</b> Verifique visualmente o Drop desde a CTO até a entrada da residência.</li>
+            <h2>Fluxo de Diagnóstico Passo a Passo</h2>
+
+
+            <p>
+                <b>INSPEÇÃO EXTERNA VISUAL:</b>
+            </p>
+
+            <p>
+                Verifique visualmente o Drop desde a CTO até a entrada da residência.
+            </p>
+
+            <p>
+                <b>Atenção:</b> Procure por dobras acentuadas, pontos de atrito e até um rompimento visível.
+            </p>
+
+            <p>
+                <b>TESTE DE CONTINUIDADE (<i>VFL/LASER</i>):</b> 
+            </p>
+
+            <p>
+                Em caso de rompimento externo aparente, injete o laser na ponta do Drop interno (<i>lado cliente</i>).
+            </p>
+
+            <p>
+                <b>Falha:</b> Fibra rompida onde a luz laser aparece na ponta rompida. <b>Ação:</b> Identificar ponto de ruptura e <i>Registre foto do laser não atravessando ou saindo pela ponta da fibra.</i> E <b>encaminhe para a externa</b>
+            </p>
+
+            <p>
+                <b>MEDIÇÃO DE POTÊNCIA (POWER METER):</b>
+            </p>
+
+            <p>
+                Meça o sinal na ponta do Drop. O padrão ideal deve estar entre <b>-15 dBm e -25 dBm</b> (<i>dependendo da rede</i>).
+            </p>
+            <ul>
+                <li><b>Sinal Alto (<i>ex: -30 dBm</i>):</b> Sujeira ou curvatura. Limpe e re-conectorize.</li>
+                <li><b>Sem Sinal:</b> Problema na CTO ou rede primária. Realize a troca do conector de fibra para validar.</li>
+                <li><b>Ação:</b> Caso não tenha sido normalizado, após procedimentos, <b>encaminhe para a externa</b>. </li>
+            </ul>
+            <p>
+                <b>VALIDAÇÃO DO PATCH CORD:</b>
+            </p>
+
+            <p>
+                Se o sinal no Drop está OK, mas na ONU/ONT não, o problema é o cordão óptico.
+            </p>
+
+            <p>
+                <b>Ação:</b> Passe o laser no Pathcord para validar rompimento, trinca ou atenuação. Em caso de falhas, realize a substituição do cordão óptico. 
+            </p>
+
+            <p>
+                <b>VALIDAÇÃO DO EQUIPAMENTO:</b>
+            </p>
+
+            <p>
+                Foi validado tanto o Drop quanto cordão óptico, e ambos estão dentro do padrão, mas sinal continua em LOS na ONU/ONT. Nesses casos temos uma falha no equipamento:
+            </p>
+
+            <p>
+                <b>Ação:</b> Realize a <b>limpeza na emenda óptica</b> do aparelho, e caso não resolva, faça a <b>substituição</b> do mesmo em caso de <b>comodato</b>.  
+            </p>
+
+            <p>
+                <b>FINALIZAÇÃO DA OS:</b>
+            </p>
+
+            <p>
+                Caso o sinal tenha sido normalizado, vamos realizar a finalização ideal da OS.
+            </p>
+            <ul>
+                <li><b>Teste de Velocidade</b>: Realize um teste de velocidade no Wifi ou Cabo para validar navegação no local (<i>Anexe a foto na Baixa da OS</i>).</li>
+                <li><b>Teste de Fibra</b>: Anexe a foto do sinal de Fibra na baixa da OS.</li>
+                <li><b>Escuta Ativa:</b> Pergunte sobre a estabilidade do Wi-Fi ou na conexão geral, bem como duvidas que o cliente possa possuir no momento da visita. Se o cliente relatara alguma dificuldade, levante os testes de lentidão, como:</li>
                 <ul>
-                    <li><b>Atenção</b>: Procure por dobras acentuadas ou pontos de atrito.</li>
+                    <li><b>Wi-Fi Survey:</b> Verifique se o nível de sinal Wi-Fi nos cômodos é satisfatório após a normalização da fibra.</li>
+                    <li><b>Ping e Tracert</b></li>
                 </ul>
-                <li><b>Teste de Continuidade (<i>VFL/Laser</i>):</b> Injete o laser na ponta interna (lado cliente).</li>
-                <ul>
-                    <li><b>Falha:</b> Fibra rompida onde a luz laser aparece na ponta rompida. <b>Ação</b> Identificar ponto de ruptura e Registre foto do laser não atravessando ou saindo pela ponta da fibra.</li>
-                </ul>
-                <li><b>Medição de Potência (<i>Power Meter</i>):</b></li>
-                <ul>
-                    <li>Meça o sinal na ponta do Drop. O padrão ideal deve estar entre <b>-15 dBm e -25 dBm</b> (dependendo da rede).</li>
-                    <li><b>Sinal Alto (<i>ex: -30 dBm</i>):</b> Sujeira ou curvatura. Limpe e re-conectorize.</li>
-                    <li><b>Sem Sinal:</b> Problema na CTO ou rede primária. Realize a troca do conector de fibra para validar.</li>
-                </ul>
-                <li><b>Validação do Patch Cord:</b></li>
-                <ul>
-                    <li>Se o sinal no Drop está OK, mas na ONU/ONT não, o problema é o cordão óptico.</li>
-                    <li><b>Ação:</b> Troque o Patch Cord preventivamente e valide a navegação. Passe o laser no Pathcord para validar rompimento, trinca ou atenuação.</li>
-                </ul>
-                <li><b>Finalização e Pós-Venda:</b></li>
-                <ul>
-                    <li>Sinal normalizado? Realize o teste de velocidade via cabo (<i>RJ45</i>) ou WiFi.</li>
-                    <li><b>Escuta Ativa:</b> Pergunte sobre a estabilidade do Wi-Fi. Se o cliente relatar lentidão, verifique interferências de canal ou posicionamento do roteador e realize os testes padrões do protocolo de lentidão/oscilação.</li>
-                </ul>
-            </ol>
+            </ul>
+            <p>
+                <b>ENCAMINHAR PARA EXTERNA:</b>
+            </p>
+
+            <p>
+                O encaminhamento para externa é feito na finalização da OS. Após isso, com o nome do cliente em mãos, envie uma mensagem no grupo "<i>Etecc - Equipe Técnica</i>" com a seguinte mensagem: "*Client<i> nome_cliente, Necessário encaminhar Equipe Externa</i>".
+            </p>
+
+
+
+            
         </div>
     </div>
     <etecc-revisao version="001" author="Raphael dos Anjos" date="19/12/2025"></etecc-revisao>

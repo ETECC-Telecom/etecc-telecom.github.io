@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Largura de Banda</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+
+            <h1>Atingir Largura de Banda</h1>
+            <hr>
+            <p>
+                Os testes de velocidade para aferir largura de banda devem ser feitos em um ativo cabeado que tenha uma capacidade superior ao plano contratado, e ainda assim, é esperado uma perca de <b>8%</b> a <b>10%</b> nesses testes previstos pela Anatel.
+            </p>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">Testes no Wifi</h5>
+                <p>Normalmente esses testes servem para validar conexão. É previsto uma parca de 30% a 40%, porém pode variar muito dependendo de vários fatores. Por isso não é valido para aferir largura de banda.</b></p>                
+            </div>
+
+            <p>
+                <b>Limitação Fixa</b>: Quando o limite é fixo, por exemplo, 100mb em um plano de 600, o problema pode estar no <b>cabo WAN</b>. Verifique o mesmo e faça a substituição caso necessário. Ou pode ser uma dificuldade de contrato (<i>raramente</i>), nesse caso, entre em contato com a torre para validação. 
+            </p>
+
+            <p>
+                <b>Limitação variável</b>: Quando o teste via cabo não funciona e fica oscilando entre os valores, a primeira coisa que devemos fazer é o reinicio do ativo. Desligue o roteador e aguarde cerca de <b>3 minutos</b> Caso o a dificuldade persista, realize a troca do cabo de rede e fonte. E se persistir, realize a troca do Router. 
+            </p>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <h5 class="alert-heading">Caso Extremo</h5>
+                <p>Em caso onde nenhuma dessa opções resolveram o problema, podemos estar lidando com uma dificuldade no ativo de medição, sendo necessário a troca ou validação com a supervisão.</b></p>                
+            </div>
+          
+
+            
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

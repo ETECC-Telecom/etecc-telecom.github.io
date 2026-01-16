@@ -23,12 +23,19 @@
     <etecc-head></etecc-head>
 
     <etecc-navbar></etecc-navbar>
-
+    
+    
     <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Troubleshooting</li>
+            </ol>
+        </nav>
 
         <div class="row">
 
-            <h1>Central de Guias de Troubleshooting Técnico </h1>
+            <h1>Central de Guias de Resolução de Problemas</h1>
             <hr>
             <h2> O que é o Troubleshooting?</h2>
             
@@ -47,6 +54,7 @@
                 <li><b>Evidência Técnica:</b> "O que não é registrado, não foi testado." Fotos de Power Meter, testes de velocidade e uso do laser são essenciais para o histórico do cliente e para o suporte de Nível 2.</li>
                 <li><b>Foco na Experiência do Cliente:</b> Resolver o problema técnico é apenas metade do trabalho. A outra metade é garantir que o cliente entendeu a solução e se sente confiante no serviço entregue.</li>
             </ol>
+
             <h2> Como utilizar estes guias</h2>
             <p>
                 Abaixo, você encontrará os protocolos específicos para cada tipo de chamado. Cada guia foi desenhado para ser um fluxo de decisão:
@@ -56,18 +64,235 @@
                 <li>:<b>Atenção aos alertas (⚠️)</b> Pontos críticos que podem causar retrabalho ou danos ao equipamento.</li>
                 <li><b>Checklist de Encerramento:</b> Antes de sair do cliente, valide se todos os pontos de teste do guia foram cumpridos.</li>
             </ul>
+            
+            <h2>Anexos Necessários para Ordens de Serviço</h2>
+
+            <h3>Anexos Básicos</h3>
+
+            <ul>
+                <li>Foto da Fachada;</li>
+                <li>Foto do Sinal de Fibra (<i>Drop e Pathcord</i>), e até mesmo a medição pelo Etecc Instalador;</li>
+                <li>Foto de Velocidade - Normalmente no WiFi;</li>
+                <li>Foto da carcaça dos Ativos;</li>
+                <li>Foto do Numero de Serial/MAC dos ativos; </li>
+                <li>Foto do posicionamento - Onde e como estão instalados.</li>
+            </ul>
+
+            <h3>Anexos de OS Complexa</h3>
+
+            <p>
+                Nesse ponto é difícil metrificar, pois cada caso pode exigir fotos especificas na baixa da OS, como por exemplo, um caso de problema de TVBox ou Ativos antigos, é interessante que a foto desses ativos sejam anexadas na baixa da OS.  
+            </p>
+            <ul>
+                <li>Foto da Fachada;</li>
+                <li>Foto do Sinal de Fibra (<i>Drop e Pathcord</i>), e até mesmo a medição pelo Etecc Instalador;</li>
+                <li>Foto de Velocidade - Tanto no Wifi quanto no Cabo;</li>
+                <li>Foto da carcaça dos Ativos;</li>
+                <li>Foto do Numero de Serial/MAC dos ativos; </li>
+                <li>Foto do posicionamento - Onde e como estão instalados.</li>
+                <li>Foto do Ping em IPv4 e IPv6;</li>
+                <li>Foto do Tracert;</li>
+                <li>Foto do mapa de Wi-Fi Survey;</li>
+                <li>Demais Fotos referentes ao Problema do Cliente.</li>
+            </ul>
+
+            <h2>Soluções de Problemas</h2>
+
+            <p>
+                Criei uma página dedicada a soluções de problemas que podem surgir no momento de uma visita técnica a fim de nortear casos sem muita dor de cabeça.
+            </p>
+
+            <h4>Testes e Observações Físicas:</h4>
+ 
+            <div class="row justify-content-center"> 
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-fibra.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g30.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Fibra - Validando a Fibra do Cliente</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+
+                    <a href="/paginas/troubleshooting-fontes.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g20.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Testes Mecânicos na Fonte</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-avaria-utp.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g21.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Avarias no cabeamento UTP</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-posicionamento-ativo.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g22.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Posicionamento dos Ativos</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+            </div>
+            
+            <h4>Testes Lógicos:</h4>
+
+            <div class="row justify-content-center"> 
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-pontos-sombra.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g25.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Pontos de Sobra Wifi</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-largura-banda.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g24.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Atingir Largura de Banda</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-ping.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g23.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Ping e Tracert</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+            </div>
 
             <h2>Listas de Troubleshooting</h2>
 
-            <div class="d-grid gap-3">
-                <a type="button" class="btn btn-outline-dark btn-block" href="/paginas/troubleshooting-los.html">LOS (Loss of Signal)</a>
-                <a type="button" class="btn btn-outline-dark btn-block" href="/paginas/troubleshooting-sinalalto.html">Sinal Alto (Alta Atenuação / Sinal Fraco)</a>
-                <a type="button" class="btn btn-outline-dark btn-block" href="/paginas/troubleshooting-lentidao.html">Lentidão/Oscilação</a>
+            <div class="row justify-content-center"> 
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-DIO.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g26.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Checagem DIO de Apartamento</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-los.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g28.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">LOS Loss of Signal</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-sinalalto.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g27.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Sinal Alto</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-lentidao.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g29.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Lentidão ou Oscilação</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+            </div>
+            
+            <h2>Listas de Troubleshooting - Processo de Autonomia técnica</h2>
+            <div class="row justify-content-center"> 
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-secundo-ponto-cliente.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g32.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Configuração de Segundo Ponto (Roteador Particular)</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/paginas/troubleshooting-manutencao-utp.html">
+                    <div class="card img-fluid border border-0" style="width:500px">
+                        <img class="card-img-top rounded-4" src="/static/Imagens/cards-guia-troubleshooting/card_g31.webp" alt="Card image" style="width:100%">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="bg-dark rounded-2 p-1 px-4">
+                            <h6 class="card-title text-center m-0 text-white">Manutenção de Cabeamento de Rede (UTP)</h6>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    <br>
+                </div>
+
             </div>
 
         </div>
     </div>
-    <etecc-revisao version="001" author="Raphael dos Anjos" date="19/12/2025"></etecc-revisao>
+    <etecc-revisao version="002" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
 
     <etecc-footer></etecc-footer>
 

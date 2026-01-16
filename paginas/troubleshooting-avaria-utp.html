@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Avarias no Cabeamento UTP</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+
+            <h1>Avarias no cabeamento UTP</h1>
+            <hr>
+            <p>
+                Caso identifique mau contato nas pontas do cabo de Rede WAN, realize uma limpeza no mesmo com álcool isopropílico, ou realize a substituição direta do mesmo. Para cabos confeccionados, realize a manutenção das pontas quando aplicável, e em casos que não tem solução, encaminhe para a <b>equipe externa</b>. 
+            </p>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">Casos sem solução</h5>
+                <p>Cabos de rede sem solução são aqueles, que mesmo após a troca das pontas,  mesmo ainda apresenta uma avaria de mau contato, ou contato fantasma (<i>quando temos contato elétrico, mas o cabo não está conectado em nenhum lugar</i>).</p>                
+            </div>
+            
+            <h2>Checagem com Powermitter</h2>
+            <div class="alert alert-warning" role="alert">
+                <h5 class="alert-heading">Antes de verificar!</h5>
+                <p>Devem ser checados apenas cabos de rede principal (<i>WAN</i>), Segundo Ponto, Ativos como <b>TV's</b>, <b>TVBox</b>, <b>Vídeo Games</b>, <b>PC's</b> e <b>Câmeras</b> de fácil alcance. Já rede interna do cliente como servidores e entre outros não entra como obrigação do técnico.</p>                
+            </div>
+
+            <p>Temos duas formas de Checar cabos de rede usando o Powermitter:</p>
+            <p>
+                A primeira é para testar se há contato nas pontas apenas colocando o Powermitter em uma ponta, e a outra ponta adicionada no ativo, seja PC, Router e etc;
+            </p>
+
+            <img src="/static/Imagens/testecaboderedepowemitter1.webp" class="img-fluid rounded-5" alt="Teste de Cabo de Rede com Powermitter">
+            
+            <p class="mt-3">
+                A segunda forma é para testar sequência, onde colocamos o Powemitter em uma extremidade e a outra ponta do Powemitter na outra extremidade;
+            </p>
+            <img src="/static/Imagens/testecaboderedepowemitter2.webp" class="img-fluid rounded-5" alt="Teste de Cabo de Rede com Powermitter">
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">Observação...</h5>
+                <p>Só realize manutenção no cabo de segundo ponto, se o mesmo ter sido confeccionado por nós. Caso contrário, entrar em contato com a supervisão para averiguar se é possível realizar manutenção como cortesia. E deixar claro que aquela manutenção é uma cortesia para o cliente.</p>                
+            </div>
+
+
+            
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

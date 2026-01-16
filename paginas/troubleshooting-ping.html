@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ping e Tracert</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Validação de Conectividade – Ping e Tracert</h1>
+            <hr>
+            <h2>Validando o Ping</h2>
+
+            <p>
+                Ao realizar um teste de <b>ping</b>, o comportamento esperado é um fluxo <b>contínuo</b>, <b>sem perda de pacotes</b> e com o <b>menor tempo de resposta (<i>ms</i>)</b> possível. Os testes devem ser executados tanto em <b>IPv4 quanto em IPv6</b>, preferencialmente com uma amostra mínima de <b>200 pacotes</b>, considerando como ideal uma <b>tolerância de 0% de perda</b>.
+            </p>
+            
+            <h3>Interpretação do Tempo de Resposta (ms)</h3>
+
+            <p>
+                O valor em milissegundos (<b>ms</b>) representa o <b>tempo médio</b> que um pacote leva para ir até o destino e retornar.
+            </p>
+            <ul>
+                <li>Valores <b>até 50 ms</b> → Excelente desempenho.</li>
+                <li>Valores entre <b>50 e 100 ms</b> → Aceitável, porém merece atenção.</li>
+                <li>Valores <b>acima de 100 ms</b> → Podem indicar:</li>
+                <ul>
+                    <li>Sobrecarga de <b>CPU do roteador</b>;</li>
+                    <li>Problemas de <b>memória/cache</b>;</li>
+                    <li>Processamento excessivo ou falha de hardware.</li>
+                </ul>
+            </ul>
+            <p>
+                Esses cenários podem impactar diretamente a estabilidade e a latência da rede.
+            </p>
+            <h3>Perda de Pacotes</h3>
+
+            <p>
+                A <b>perda de pacotes</b> indica instabilidade na comunicação. Mesmo que tecnicamente uma perda de <b>1% a 2%</b> seja considerada aceitável em ambientes externos, em testes controlados e curtos (<i>ex: 200 pacotes</i>) o <b>ideal é sempre 0% de perda</b>.
+            </p>
+
+            <p>
+                Qualquer perda recorrente deve ser investigada.
+            </p>
+            
+            <h3>Procedimento em Caso de Perda de Pacotes</h3>
+
+            <p>
+                Siga o passo a passo abaixo, na ordem:
+            </p>
+            <ol>
+            <li><b>Troque o servidor de teste</b></li>
+                <ul>
+                <li>Normalmente utilizamos o servidor do Google (**<i>8.8.8.8</i>**).</li>
+                <li>Caso haja perda, teste outro destino para descartar instabilidade externa.</li>
+                </ul>    
+            <li> <b>Troque o cabo de rede</b></li>
+                <ul>
+                <li>Substitua os cabos utilizados no notebook e na porta WAN.</li>
+                <li>Verifique conectores, dobras, oxidação ou folgas.</li>
+                </ul>    
+            <li> <b>Troque a fonte de alimentação dos equipamentos (*<i>Router/ONU/ONT</i>*)</b></li>
+                <ul>
+                <li>Fontes com amperagem incorreta ou defeituosas podem causar instabilidade e perda de pacotes.</li>
+                <li>Atenção especial a equipamentos Huawei, que são sensíveis à alimentação inadequada.</li>
+                </ul>    
+            <li> <b>Substituição do equipamento</b></li>
+                <ul>
+                <li>Caso o problema persista, substitua primeiramente o <b>roteador</b>.</li>
+                <li>Persistindo, realize a troca da <b>ONU</b>.</li>
+                </ul>
+            </ol>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠️ Problema persiste após todas as etapas</h5>
+                <p>
+                    Se todos os testes foram realizados corretamente e há certeza de que não se trata de problema de sinal de fibra ou outro fator externo, é possível que o <b>dispositivo de medição (<i>notebook/testador</i>)</b> esteja com defeito. Neste caso, acione a <b>supervisão</b> para validação.
+                </p>                
+            </div>
+ 
+            <h2>Validando o Tracert</h2>
+
+            <p>
+                O <b>tracert</b> tem como objetivo identificar o caminho (<i>rota</i>) que os pacotes percorrem até o destino, permitindo localizar <b>onde ocorre uma falha, lentidão ou perda de comunicação</b>.
+            </p>
+
+            <p>
+                Ele mostra cada salto da rede, desde o equipamento local até o servidor final.
+            </p>
+            <h3>Interpretação do Resultado</h3>
+            <ul>
+                <li><b>Problema identificado dentro da nossa rede</b></li>
+                <ul>
+                    <li><b>Exemplo</b>: falhas nos primeiros saltos, equipamentos internos, backbone, gateways locais.</li>
+                    <li><b>Ação</b> Encaminhar o chamado para o <b>TI/NOC</b>.</li>
+                </ul> 
+                <li><b>Problema identificado fora da nossa rede</b></li>
+                <ul>
+                    <li><b>Exemplo</b>: falha após sair do provedor, rotas externas, servidores de terceiros.</li>
+                    <li><b>Ação:</b> Não é um problema sob nossa responsabilidade direta.</li>
+                    <li>Deve-se registrar evidência e orientar o cliente, quando aplicável.</li>
+                </ul>
+            </ul>    
+     
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">Testes</h5>
+                <p>
+                    O tracert não corrige o problema — ele serve exclusivamente para <b>localizar onde a falha está ocorrendo</b>. Dentro de nossa rede, teremos cerca de 5 a 6 saltos, com um IP iniciando com "<b>172</b>" ou alguma legenda com "<b>SeaBorn</b>"
+                </p>                
+            </div>
+            
+            
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

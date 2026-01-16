@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Troubleshooting-DIO</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+
+            <h1>Guia de Inspeção: Caixa de Distribuição Óptica (DIO) em Edifícios</h1>
+            <hr>
+
+            <p>
+                A correta manutenção da ramificação óptica em prédios é vital para a estabilidade da rede. Em Ordens de Serviço (OS) de <b>Sinal Alto</b> ou <b>LOS (Link Off Service)</b>, a inspeção da caixa de distribuição é obrigatória após esgotados os testes no interior da residência.
+            </p>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-3">
+                    <img class="img-fluid m-2" src="/static/Imagens/DIO_Interno_image1-636.webp" alt="DIO">
+                </div>
+                <div class="col-sm-3">
+                    <img class="img-fluid m-2" src="/static/Imagens/DIO_Interno_image1-85.webp" alt="DIO">
+                </div>
+            </div>
+            
+            <h2>01 - Pré-requisitos e Preparação</h2>
+
+            <p>
+                Antes de atuar na caixa externa, certifique-se de que o protocolo interno foi concluído:
+            </p>
+            <ul>
+                <li>Validação do patch cord e da ONU/ONT.</li>
+                <li>Inspeção da tomada óptica (<i>PTO</i>), limpeza e troca de conectores internos (<i>Processo de LOS e Sinal Alto do Guia</i>).</li>
+                <li>Confirmação de que o problema não é macrocurvatura dentro do imóvel.</li>
+            </ul>
+
+            <h2>02 - Rastreamento e Identificação (VFL/Caneta de Laser)</h2>
+
+            <p>
+                Caso o sinal não seja restabelecido internamente, utilize a fonte de luz visual (<i>VFL</i>) para identificar a fibra do cliente na caixa de distribuição:
+            </p>
+            <ol>
+                <li> Conecte o laser na ponta do drop (<i>cabo que vai para o DIO</i>) dentro do apartamento.</li>
+                <li> Na caixa do corredor/prumada, identifique o conector correspondente.</li>
+                <li> <b>Dica de Inspeção:</b> Observe não apenas a face do conector, mas o corpo do acoplador e a base do cabo. A dispersão de luz (<i>brilho vermelho excessivo</i>) no corpo do conector indica <b>má conectorização ou rompimento parcial</b>.</li>
+            </ol>
+            <ul>
+                <li><b>Luz Identificada:</b> Realize a limpeza técnica com álcool isopropílico e lenço dry-wipe. Se o problema persistir, substitua o conector mecânico.</li>
+                <li><b>Luz Ausente:</b> Indica rompimento total no trajeto entre o apartamento e a caixa. <b>Não tente desmontar conectores de terceiros.</b> Se o cabo estiver inacessível, encaminhe para a equipe de infraestrutura/externa.</li>
+            </ul>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">NOTA DE SEGURANÇA:</h5>
+                <p>
+                    Caso o laser não seja identificado no conector, <b>é proibido desmontar o conector mecânico</b> para procurar a luz diretamente na fibra nua. Embora o brilho possa ser visível na fibra, essa prática não é válida para diagnóstico e oferece alto risco de danos ao conector desmontado, podendo causar atenuação ou queda de sinal em clientes vizinhos devido ao manuseio excessivo. Se a luz não atravessar o conector montado, encaminhe o chamado para a equipe externa.                    
+                </p>                
+            </div>
+            
+            <h2>03 - Diagnóstico de Divergência de Sinal</h2>
+
+            <p>
+                Se após a troca do conector o sinal no apartamento continuar fora do padrão (<i>ex: acima de -25dBm ou com perdas excessivas</i>), é necessário isolar a causa:
+            </p>
+            <ul>
+                <li><b>Teste de Referência na Caixa:</b> Desconecte o drop do cliente e conecte um cordão óptico de teste (<i>limpo e homologado</i>) diretamente na porta da caixa.</li>
+                <li><b>Validação de Amostragem:</b> Meça o sinal em pelo menos <b>3 portas adjacentes</b>.</li>
+                <ul>
+                    <li><b>Sinal ruim em todas as portas:</b> Problema na alimentação da caixa (<i>Splitter ou cabo alimentador</i>). <b>Ação:</b> Acionar Equipe de Rede Externa.</li>
+                    <li><b>Sinal bom na caixa, mas ruim no cliente:</b> O problema está no cabo drop ou na conectorização das pontas. <b>Ação:</b> Refazer conectores e encaminhar externa caso não seja normalizado.</li>
+                </ul>
+            </ul>
+
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

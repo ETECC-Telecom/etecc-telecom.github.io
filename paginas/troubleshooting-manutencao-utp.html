@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manutenção de Cabo de Rede</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Manutenção de Cabeamento de Rede (UTP)</h1>
+            <hr>
+            
+            <p>
+                Nos casos que envolvem a manutenção de cabos de rede, o técnico possui autonomia para decidir sobre a intervenção, independentemente de a estrutura original ter sido instalada pela empresa ou por terceiros.
+            </p>
+
+            <p>
+                Antes de realizar o procedimento, o técnico deve avaliar os seguintes critérios de priorização:
+            </p>
+            <ul>
+                <li><b>Resolução do Problema (Foco Principal):</b> Se a manutenção do cabo for o fator determinante para normalizar a conexão do cliente, a intervenção deve ser priorizada, independentemente do tempo de contrato do cliente.</li>
+                <li><b>Tempo de Casa (Fidelização):</b> Em situações onde a necessidade não é crítica, a antiguidade do cliente serve como métrica para a autonomia do técnico: quanto maior o tempo de contrato, maior a liberdade para refazer ou ajustar a estrutura de rede.</li>
+            </ul>
+            <h2>Limites de Atuação e Escopo Técnico</h2>
+
+            <p>
+                Para garantir a agilidade da rota e a segurança da rede, a manutenção está restrita aos seguintes termos:
+            </p>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">Escopo do Serviço</h5>
+                <p>
+                    A manutenção permitida consiste exclusivamente na substituição de conectores RJ45 e testes de continuidade.
+                </p>                
+            </div>
+
+            <p>
+                Caso o problema exija a substituição total do cabo ou infraestrutura complexa, o técnico deve seguir o fluxo abaixo:
+            </p>
+            <ol>
+                <li><b>Problema de Cabo confeccionado pela Etecc:</b> Encaminhar a demanda para a equipe externa.</li>
+                <li><b>Desejo do Cliente/Nova Instalação:</b> Se o cliente solicitar um novo cabeamento ou a troca completa da fiação interna, o técnico deve pedir ao operador que abriu a OS para entrar em contato com o cliente para abertura de orçamento ou solicitação de serviço específico de cabeamento.</li>
+            </ol>
+
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">Duvidas de Infraestrutura</h5>
+                <p>
+                    Em caso de duvida se o cabo foi confeccionado pela empresa ou terceiros, o técnico nesse cenário, deverá entrar em contato com a Torre/Supervisão para saber qual a procedência do mesmo. 
+                </p>                
+            </div>
+       
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

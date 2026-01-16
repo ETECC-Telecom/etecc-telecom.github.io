@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Segundo Ponto - Particular</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Configuração de Segundo Ponto (Roteador Particular)</h1>
+            <hr>
+            
+            <p>
+                Existem cenários em que o cliente já possui cabeamento estruturado e um roteador próprio no local, solicitando ao técnico a configuração deste ativo como um ponto adicional. Independente do plano contratado, a conduta a seguir será a mesma. Nesses cenários a configuração do segundo ponto é <b>obrigatória</b>.
+            </p>
+            <p>
+                <b>Procedimento</b>: Após a instalação, é indispensável realizar um <b>teste de estabilidade e desempenho</b> no segundo ponto para fins de amostragem e validação da entrega da banda contratada. Em casos de instabilidade apenas no segundo ponto, essa dificuldade foge de nossa responsabilidade.
+            </p>
+            <p>
+                Existem casos onde essa configuração é inviável, isso é, quando a configuração é muito complexa, depende de apps de terceiros, ou quando não há viabilidade para tal (*por exemplo, um PJ querendo configurar um segundo ponto em um cômodo fora do estabelecimento*). 
+            </p>
+
+            <p>
+                Em casos onde o plano do cliente é superior ou igual a 800mb, porém o mesmo não ultrapassou os 3 meses de contrato, a tomada de decisão depende diretamente da supervisão. Isso para inserção de um Roteador Comodato em uma estrutura já criada.  
+            </p>
+            
+            <h2>Suporte e Responsabilidade Técnica</h2>
+
+            <p>
+                É fundamental alinhar as expectativas do cliente quanto à manutenção:
+            </p>
+            <ul>
+                <li><b>Isenção de Suporte:</b> Informe ao cliente que a empresa <b>não fornece suporte técnico</b> para equipamentos ou cabeamentos que não pertençam ao comodato, independentemente do plano contratado.</li>
+                <li><b>Caráter de Cortesia:</b> Caso realize a configuração, deixe claro que se trata de uma <b>cortesia técnica pontual</b>, não gerando obrigatoriedade de reparos futuros ou responsabilidade da empresa sobre o funcionamento desse ativo de terceiros.</li>
+            </ul>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <h5 class="alert-heading">Registro na OS</h5>
+                <p>
+                    Em caso de configuração de segundo ponto. É de extrema importância que tal ação esteja registrada na Baixa da OS como uma cortesia pessoal técnica. Isso quando a estrutura e equipamento não são comodato. E também o registro de que foi passado ao cliente a isenção de suporte para esse contexto. 
+                </p>                
+            </div>
+            
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
