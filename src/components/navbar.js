@@ -21,9 +21,6 @@ export class NavBar extends HTMLElement {
                                 <a class="nav-link" href="/paginas/configuracaorouter.html">Configuração de Router</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/paginas/pontoadicional.html">Ponto Adicional</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="/paginas/quedas.html">Quedas</a>
                             </li>
                             <li class="nav-item">
@@ -37,9 +34,6 @@ export class NavBar extends HTMLElement {
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/paginas/comandoscmd.html">Comandos CMD</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/paginas/hierarquiaos.html">Hierarquia de OS</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/paginas/troubleshooting.html">Troubleshooting</a>

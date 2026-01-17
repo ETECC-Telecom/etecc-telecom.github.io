@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (LOS)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Avaliação de Segundo Ponto</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Avaliação de Segundo Ponto</h1>
+            <hr>
+
+            <h2>Ponto Adicional – Diretrizes Operacionais</h2>
+
+            <h3>Casos em que há cobrança de taxa e necessidade de roteador próprio</h3>
+
+            <p>
+                A instalação de ponto adicional <b>gera cobrança de taxa</b> e requer que o cliente possua <b>roteador próprio</b> nos seguintes casos:
+            </p>
+            
+            <ul>
+                <li>Clientes que realizaram <b>compra de equipamento (recarga)</b>;</li>
+                <li>Clientes com <b>planos de até 600 Mbps</b>;</li>
+                <li>Clientes com <b>planos de 800 Mbps ou 1000 Mbps</b> que possuam <b>menos de 3 meses</b> de vínculo ativo na base de clientes.</li>
+            </ul>
+
+            <h3>Casos de isenção e comodato de roteador</h3>
+
+            <p>
+                São <b>isentos de taxa</b> e recebem o <b>roteador em regime de comodato</b> os clientes que:
+            </p>
+
+            <p>
+                Possuem <b>planos de 800 Mbps ou 1000 Mbps</b> e têm <b>mais de 3 meses de vínculo ativo</b> na base de clientes.
+            </p>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">Downgrade</h5>
+                <p>
+                    O roteador permanecerá em comodato enquanto o cliente mantiver o mesmo plano. Em caso de <b>downgrade</b>, o equipamento deverá ser <b>retirado</b>.
+                </p>                
+            </div>
+            
+            <h3>Ordens de serviço e avaliação técnica</h3>
+
+            <p>
+                O técnico poderá receber uma <b>ordem de serviço (OS) de avaliação</b> para instalação de segundo ponto. Nesses casos, o cliente geralmente já está ciente das <b>taxas e condições</b>, mas é <b>recomendável reforçar essas informações durante o atendimento</b>.
+            </p>
+
+            <p>
+                Também é possível que o técnico <b>identifique a necessidade</b> de um segundo ponto durante uma visita comum.
+            </p>
+
+            <p>
+                Nessa situação, a <b>sugestão só será válida</b> se forem realizados:
+            </p>
+
+            <ul>
+                <li><b>Mapa de calor</b> - Com anexo em OS e descrição na baixa da OS, ou;</li>
+                <li><b>Levantamento da potência do sinal Wi-Fi (em dBm)</b> por toda a residência, devendo essa análise ser <b>registrada na baixa da OS</b> e <b>Anexada</b>.</li>
+            </ul>
+
+            <h3>Procedimentos em caso de aceite do cliente</h3>
+
+            <p>
+                Ao tratar sobre o segundo ponto com o cliente e havendo <b>aceite</b>, o técnico deverá proceder de uma das seguintes formas:
+            </p>
+
+            <p>
+                <b>Agendamento via retorno interno:</b>
+            </p>
+
+            <ul>
+                <li>Informar ao cliente que a equipe entrará em contato para agendar a instalação;</li>
+                <li>Ao finalizar a OS, solicitar ao técnico interno responsável pela abertura do atendimento que <b>dê continuidade</b>, informando o <b>nome do cliente</b>;</li>
+            </ul>
+
+            <p>
+                <b>Agendamento por iniciativa do cliente:</b>
+            </p>
+
+            <p>
+                Orientar o cliente a <b>entrar em contato posteriormente</b> para agendar a instalação, especialmente quando este precisar <b>avaliar as opções</b> ou <b>aguardar autorização de um responsável</b>.
+            </p>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">Alerta importante!</h5>
+                <p>
+                    O segundo ponto <b>só deve ser ofertado em casos de real necessidade</b>, com <b>avaliação técnica devidamente registrada na baixa da OS</b>. Caso seja solicitado o segundo ponto sem essa avaliação, será obrigatória uma <b>revisita ao cliente</b> para levantamento dos dados técnicos.
+                </p>                
+            </div>
+
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="17/01/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
