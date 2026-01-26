@@ -1,4 +1,7 @@
 
+function gerar_hash(){
+
+}
 
 function Cadastrar_Chave(){
 
@@ -7,7 +10,9 @@ function Cadastrar_Chave(){
 
     const CHAVE = document.getElementById('chave');
 
-    localStorage.setItem("CHAVE", CHAVE.value);
+    const hash = CryptoJS.SHA256(CHAVE.value);
+
+    localStorage.setItem("CHAVE", hash.toString(CryptoJS.enc.Hex));
 
     // Cria o elemento <div>
     const alertDiv = document.createElement('div');

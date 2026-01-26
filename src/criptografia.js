@@ -15,7 +15,10 @@ function criptografar() {
     }
 
     // PASSO 2: Usar o algoritmo AES do CryptoJS para criptografar.
-    const encrypted = CryptoJS.AES.encrypt(mensagem, chave).toString();
+    const chave_cripto = CryptoJS.SHA256(chave).toString(CryptoJS.enc.Hex);
+
+    const encrypted = CryptoJS.AES.encrypt(mensagem, chave_cripto).toString();
+
 
     textoCriptografado = encrypted;
 
