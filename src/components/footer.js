@@ -21,7 +21,7 @@ export class EteccFooter extends HTMLElement{
             <p>© - Todos os direitos reservados a <b>ETECC Telecom</b> - ${anoCompleto}</p>
             <p><b>Autor: </b><a href="https://raphaelanjos27.github.io/Raphael-Page/" target="_blank">Raphael dos Anjos</a></p>
             <br><br>
-            <pre> Versão 1.2.3 </pre>
+            <pre> Versão 1.2.4 </pre>
         </footer>
 		`
 	}
