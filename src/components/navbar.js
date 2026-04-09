@@ -42,6 +42,9 @@ export class NavBar extends HTMLElement {
                                 <a class="nav-link" href="/paginas/troubleshooting.html">Troubleshooting</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/paginas/estudos.html">Estudos</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/paginas/consulta_vlan.html">Consultar VLAN</a>
                             </li>
                         </ul>
