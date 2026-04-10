@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Estudos - Leitura do Histórico de Quedas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/estudos.html">Estudos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Histórico de Quedas</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Análise Estratégica de Histórico de Quedas</h1>
+            <hr>
+
+            <img src="/static/Imagens/infograficos/Pasted image 20260331124225.png" class="mx-auto d-block">
+            
+            <h2>Introdução e Objetivo</h2>
+
+            <p>
+                O histórico de quedas é o "<i>exame de sangue</i>" da conexão do cliente. Para o técnico de campo, interpretar esses dados antes e durante a visita permite:
+            </p>
+            <ul>
+                <li>Identificar se o problema é interno (<i>casa do cliente</i>) ou externo (<i>rede/provedor</i>).</li>
+                <li>Diferenciar falhas elétricas de falhas de sinal óptico/físico.</li>
+                <li>Agilizar o diagnóstico, evitando trocas desnecessárias de equipamentos.</li>
+            </ul>
+            <h2>Dicionário de Termos (Colunas do Sistema)</h2>
+
+            <p>
+                Com base nos logs extraídos, o técnico deve dominar estes conceitos:
+            </p>
+            <ul>
+                <li><b>Start/Stop</b>: Início e fim da sessão de autenticação.</li>
+                <li><b>Motivo Stop</b>: A razão pela qual a conexão caiu.</li>
+                <li><b>Output/Input</b>: Volume de dados trafegados (<i>Download/Upload</i>). Útil para saber se o cliente estava usando a internet no momento da queda.</li>
+                <li><b>Tempo (<i>Uptime</i>)</b>: Duração da conexão antes da interrupção.</li>
+                <li><b>NAS/IP</b>: Identificadores do servidor de autenticação e o IP atribuído ao cliente.</li>
+            </ul>
+            <h2>Matriz de Diagnóstico: Motivos de Stop</h2>
+
+            <p>
+                Abaixo, os motivos reais encontrados nos históricos e o que eles indicam para o técnico em campo:
+            </p>
+
+            <h3>Lost-Carrier (Perda de Portadora)</h3>
+
+            <p>
+                Este é o motivo mais comum nos logs.
+            </p>
+            <ul>
+                <li><b>O que significa</b>: O concentrador perdeu a comunicação física com o roteador/ONU do cliente.</li>
+                <li><b>O que investigar em campo</b>:</li>
+                <ul>
+                    <li>Rompimento de fibra ou cabo drop.</li>
+                    <li>Sinal óptico (<i>Power</i>) instável ou fora do padrão (<i>atenuação alta</i>).</li>
+                    <li>Conector sujo ou mal clivado.</li>
+                    <li>Problemas na porta da CTO.</li>
+                </ul>
+            </ul>
+
+            <h3>Admin-Reset (Reset Administrativo)</h3>
+
+            <p>
+                Aparece frequentemente em diversas datas.
+            </p>
+            <ul>
+                <li><b>O que significa</b>: A conexão foi derrubada pelo lado do provedor ou por um comando manual no sistema.</li>
+                <li><b>O que investigar em campo</b>:</li>
+                    <ul>
+                    <li>Verificar se houve manutenção programada na região.</li>
+                    <li>Checar se o suporte interno realizou testes remotos que exigiram o reset da porta.</li>
+                    </ul>
+            </ul>
+            <h3>User-Request (Requisição do Usuário)</h3>
+
+            <p>
+                Comum em sessões curtas ou trocas de IP.
+            </p>
+            <ul>
+                <li><b>O que significa</b>: O equipamento do cliente enviou um comando de "<i>desconexão</i>".</li>
+                <li><b>O que investigar em campo</b>:</li>
+                    <ul>
+                    <li>O cliente desligou o roteador da tomada?</li>
+                    <li>O roteador está reiniciando sozinho (<i>problema na fonte de alimentação</i>)?</li>
+                    <li>Instabilidade elétrica na residência.</li>
+                    </ul>
+            </ul>
+
+            <h2>Análise de Padrões (Estudo de Caso)</h2>
+
+            <p>
+                Ensine a equipe a olhar o <b>Tempo (Uptime)</b> para identificar o tipo de falha:
+            </p>
+
+            <ul>
+                <li><b>Quedas em horários fixos:</b> Pode indicar interferência elétrica (<b>ex: um motor que liga sempre no mesmo horário</b>) ou configurações de <i>lease time</i>.</li>
+                <li><b>Várias quedas seguidas de 0hr ou poucas horas:</b> Como visto em alguns registros, isso indica uma instabilidade crítica. Se o motivo for <kbd>Lost-Carrier</kbd>, o problema é físico (<b>fibra/cabo</b>). Se for <kbd>User-Request</kbd>, a fonte do roteador pode estar desarmando.</li>
+                <li><b>Longos períodos de estabilidade (<b>ex: 682h ou 883h</b>):</b> Indica que a rede é estável, mas algo pontual e grave aconteceu para interromper a sessão.</li>
+            </ul>
+
+            <h2>Fluxo de Trabalho do Técnico Moto</h2>
+
+            <ol>
+                <li><b>Pré-campo</b>: Analisar os últimos 10 logs de queda. O motivo predominante é <kbd>Lost-Carrier</kbd>? Prepare o material de limpeza de fibra e o Power Meter.</li>
+                <li><b>Chegada ao cliente</b>: Verificar se o log de <kbd>User-Request</kbd> coincide com o relato do cliente de "desligar para ver se volta".</li>
+                <li><b>Inspeção física</b>: Validar a estrutura interna com base no motivo. Se o log mostra quedas frequentes de madrugada, verifique se há algo sendo desligado pelo cliente.</li>
+                <li><b>Fechamento</b>: Após o reparo, verificar se uma nova sessão estável (<i>Start</i>) foi criada e se o tráfego (<i>Input/Output</i>) está fluindo.</li>
+            </ol>
+            <h2>Roteiro Ideal Para Um Técnico Pré-Campo</h2>
+
+            <p>
+                O roteiro ideal para um técnico em <b>pré-campo</b> baseia-se na análise estratégica do histórico de quedas, que funciona como um "exame de sangue" da conexão do cliente. Seguindo os procedimentos técnicos, o roteiro deve contemplar os seguintes passos:
+            </p>
+            
+            <h3>Análise dos Logs de Queda</h3>
+
+            <p>
+                O primeiro passo é <b>analisar os últimos 10 logs de queda</b> do cliente no sistema. O técnico deve observar as colunas de <b>Motivo Stop</b> e <b>Tempo (Uptime)</b> para definir a provável causa antes mesmo de sair para o atendimento.
+            </p>
+            
+            <h3>Identificação do Motivo Predominante (Stop Reason)</h3>
+
+            <p>
+                O técnico deve identificar qual falha está ocorrendo para preparar o material adequado:
+            </p>
+            <ul>
+                <li><b>Lost-Carrier (Perda de Portadora)</b> Indica perda de comunicação física. Se este for o motivo predominante, o técnico deve <b>preparar material de limpeza de fibra e o Power Meter</b>, pois o problema provavelmente está no cabo drop, conectores sujos ou sinal óptico fora do padrão.</li>
+                <li><b>User-Request (Requisição do Usuário)</b> Indica que o equipamento enviou um comando de desconexão. Isso sugere que o cliente pode estar desligando o roteador, ou há uma <b>instabilidade elétrica/problema na fonte de alimentação</b>.</li>
+                <li><b>Admin-Reset (Reset Administrativo)</b> Indica que a conexão foi derrubada pelo provedor. O técnico deve verificar se houve <b>manutenção programada</b> na região antes de se deslocar.</li>
+            </ul>
+            <h3>Estudo de Padrões de Uptime</h3>
+
+            <p>
+                A análise da duração das conexões (<b>Uptime</b>) ajuda a diferenciar o tipo de falha:
+            </p>
+            <ul>
+                <li><b>Quedas em horários fixos</b> Podem indicar interferência elétrica externa (<b>ex: um motor ligado no mesmo horário</b>).</li>
+                <li><b>Várias quedas seguidas de curta duração</b> Sinalizam uma <b>instabilidade crítica</b>. Se acompanhadas de <i>Lost-Carrier</i>, o problema é físico; se for <i>User-Request</i>, a fonte do roteador pode estar desarmando.</li>
+                <li><b>Longos períodos de estabilidade interrompidos</b> Sugerem um evento grave e pontual na rede.</li>
+            </ul>
+            <h3>Preparação de Ferramentas e Diagnóstico Inicial</h3>
+
+            <p>
+                Com base nos dados, o técnico define o foco da visita:
+            </p>
+            <ul>
+                <li>Se o diagnóstico prévio apontar falha física (<i>Lost-Carrier</i>), o foco será a <b>inspeção da estrutura de fibra e CTO</b>.</li>
+                <li>Se apontar falha elétrica ou de manuseio (<i>User-Request</i>), o foco será a <b>verificação da fonte de alimentação e o relato do cliente</b> sobre desligar o aparelho.</li>
+            </ul>
+            <p>
+                Este roteiro permite que o técnico realize um diagnóstico fundamentado em dados, evitando trocas desnecessárias de equipamentos e agilizando o reparo em campo.
+            </p>
+
+            <h2>Diagnóstico Avançado: Da Teoria à Prática de Campo</h2>
+
+            <p>
+                Para garantir um diagnóstico de primeira, o técnico deve cruzar os dados do sistema com a realidade física encontrada na casa do cliente.
+            </p>
+
+            <h3>Tabela de Correlação: Log vs. Causa Provável</h3>
+
+            <p>
+                Utilize esta tabela para direcionar sua busca visual assim que chegar ao local:
+            </p>
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>O que o Log mostra</th>
+                    <th>O que o técnico deve buscar no campo</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vários <kbd>Lost-Carrier</kbd> em sequência</td>
+                        <td>Microcurvaturas na fibra, conector frouxo na CTO/DIO, cabo drop esticado/esmagado ou sinal óptico (RX) fora do padrão.</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>User-Request</kbd> com tempo de 0h</td>
+                        <td>Fonte de alimentação do roteador com mau contato, uso de estabilizadores/filtros de linha defeituosos ou o cliente reiniciando o equipamento manualmente.</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Admin-Reset</kbd> constante</td>
+                        <td>Possível duplicidade de login no sistema ou necessidade de atualização de firmware/configuração no concentrador (NAS).</td>
+                    </tr>
+                    <tr>
+                        <td>Sessão estável (Ex: 300h+), mas cliente reclama</td>
+                        <td>Problema <b>não é queda</b>. Focar em interferência de Wi-Fi, saturação de banda (ver colunas Input/Output) ou limitações do dispositivo do cliente.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Diferenciação Crucial: Queda Real vs. Queda Percebida</h3>
+
+            <p>
+                Nem toda reclamação de "internet caindo" é uma queda de conexão no sistema.
+            </p>
+
+            <p>
+                <b>Queda Real:</b> Ocorre quando a sessão é encerrada no log (<i>Motivos: Lost-Carrier, User-Request</i>).
+            </p>
+            <p>
+                <i>Ação:</i> Revisar infraestrutura física (<i>cabos, conectores, fibras e fusões</i>).
+            </p>
+                    
+            <p>
+                <b>Queda Percebida (<i>Instabilidade</i>):</b> O log mostra que a conexão está ativa há horas ou dias, mas o cliente sente interrupções.
+            </p>
+            <p>
+                <i>Ação:</i> Testar canais de Wi-Fi (<i>2.4GHz vs 5GHz</i>), verificar barreiras físicas (<i>paredes, espelhos</i>) e observar se o tráfego de <b>Input/Output</b> está no limite do plano contratado.
+            </p>
+            
+            <h3>Boas Práticas e Autoridade Técnica</h3>
+
+            <p>
+                A análise do histórico é sua maior ferramenta de convencimento perante o cliente:
+            </p>
+            <ol>
+                <li><b>Evidência Visual</b>: Sempre que possível, mostre o histórico de quedas ao cliente. Explicar que a conexão está "de pé" há X dias gera confiança no serviço e isola o problema para a rede interna/Wi-Fi.</li>
+                <li><b>Validação de Reparo</b>: Após realizar uma manutenção física (<i>troca de conector ou fusão</i>), force uma nova autenticação e monitore se o tempo de conexão (<i>Uptime</i>) começa a subir sem gerar novos logs de erro imediatos.</li>
+                <li><b>Análise de Tráfego</b>: Se o log mostrar alto volume de <b>Input</b> (<i>Upload</i>) constante, o cliente pode estar com algum dispositivo infectado ou realizando backups pesados que "travam" a navegação, simulando uma queda.</li>
+            </ol>
+            <h3>Checklist de Inspeção Física (<i>Padrão Ouro</i>)</h3>
+            <ul>
+                <li>✅ <b>Sinal Óptico</b>: Medir com Power Meter (<i>está dentro da margem de -15 a -25 dBm?</i>).</li>
+                <li>✅ <b>Conectores</b>: Inspeção visual de sujeira ou clivagem mal feita.</li>
+                <li>✅ <b>Energia</b>: Fonte de alimentação é a original do equipamento? Está bem encaixada?</li>
+                <li>✅ <b>Posicionamento</b>: O roteador está em local ventilado e centralizado?</li>
+            </ul>
+
+            <h2>Fluxo de Leitura de Histórico de Quedas</h2>
+            <img src="/static/Imagens/fluxogramas/fluxo de leitura de histórico de quedas.png" class="mx-auto d-block">
+
+            <h3>Como usar este guia no seu dia a dia:</h3>
+
+            <p><b>Identificando Queda Real vs. Percebida:</b></p>
+            
+            <p>
+                <b>Queda Real</b> Sessão encerra no log (<kbd>Lost-Carrier</kbd>, <kbd>User-Request</kbd>). Foco total na infraestrutura física e elétrica.
+            </p>
+                
+            <p>
+                <b>Queda Percebida</b> Log estável (uptime alto), mas cliente reclama. Foco total em Wi-Fi (<i>2.4GHz vs 5GHz</i>), saturação de banda ou barreiras físicas.
+            </p>
+        
+            <p><b>Dica de Ouro (Input/Output):</b></p>
+            
+            <p>
+                Se o <kbd>Uptime</kbd> está alto, mas o <kbd>Input</kbd> (<i>Upload</i>) está no limite, o cliente pode estar com backup em nuvem ou vírus travando a conexão, simulando uma queda.
+            </p>
+                
+            <p><b>O "Exame de Sangue":</b></p>
+            
+            <p>
+                Nunca chegue ao cliente sem olhar os últimos 10 logs. Se o motivo for <kbd>Lost-Carrier</kbd>, você já desce da moto com o <b>Power Meter</b> na mão. Se for <kbd>User-Request</kbd>, você já desce com uma <b>Fonte 12V</b> reserva.
+            </p>
+
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="10/04/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+

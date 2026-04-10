@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Estudos - Wifi Survey</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/estudos.html">Estudos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Site Survey Residencial</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Site Survey Residencial (Pós-Instalação)</h1>
+            <hr>
+
+            <p>
+                Este material foi desenvolvido para capacitar técnicos de campo na validação e otimização de redes Wi-Fi já instaladas, garantindo a entrega da melhor experiência de conectividade ao cliente final.
+            </p>
+
+            <h2>Introdução ao Site Survey Residencial</h2>
+
+            <p>
+                O <b>Site Survey Ativo Residencial</b> é o processo de validar a cobertura e a performance da rede conectando-se efetivamente a ela. Diferente do ambiente corporativo, o foco residencial é garantir uma <b>cobertura uniforme</b> em todos os cômodos, eliminando "pontos mortos" para serviços de streaming, jogos e home office.
+            </p>
+            
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 O Foco é Validação</h5>
+                <p>
+                    Como a rede já está instalada, nosso objetivo não é projetar do zero, mas sim identificar falhas de cobertura e gargalos de interferência para realizar ajustes finos.
+                </p>                
+            </div>
+
+            <h2>Ferramentas Utilizadas</h2>
+
+            <p>
+                Para um levantamento ágil e preciso em campo, utilize os seguintes aplicativos no seu smartphone quando possível:
+            </p>
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>App</th>
+                    <th>Plataforma</th>
+                    <th>Função Principal</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Wi-Fi Man (Ubiquiti)</b></td>
+                        <td>iOS / Android</td>
+                        <td>Medição de RSSI, testes de roaming e velocidade.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Wi-Fi Analyzer</b></td>
+                        <td>Android</td>
+                        <td>Identificação de canais saturados e interferências de vizinhos.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Passo a Passo em Campo</h2>
+
+            <p>
+                O sucesso da coleta depende de um procedimento padronizado:
+            </p>
+            
+            <img src="/static/Imagens/fluxogramas/fluxo simples site survey.png" class="mx-auto d-block">
+
+
+            <h3>Procedimento Operacional:</h3>
+            <ol>
+                <li><b>Conexão:</b> Conecte-se à rede (<i>preferencialmente teste as bandas de 2,4 GHz</i>).</li>
+                <li><b>Coleta de Dados:</b> Inicie a medição no cômodo onde o roteador está posicionado para estabelecer uma linha de base.</li>
+                <li><b>Movimentação:</b> Caminhe devagar. Em cada cômodo (<i>especialmente quartos e escritórios</i>), <b>fique parado por pelo menos 10 segundos</b> para garantir que o app registre uma leitura estável do sinal.</li>
+                <li><b>Mapeamento de Obstáculos:</b> Note onde há paredes grossas, espelhos ou grandes eletrodomésticos no trajeto.</li>
+            </ol>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 RSSI</h5>
+                <p>
+                    RSSI (<i>Received Signal Strength Indicator</i>) é uma medição da intensidade do sinal Wi-Fi recebido por um dispositivo, variando geralmente de <b>-30 dBm</b> (<i>melhor</i>) a <b>-90 dBm</b> (<i>pior</i>). Valores acima de <b>-60 dBm</b> indicam um sinal excelente, enquanto valores abaixo de <b>-75 dBm</b> frequentemente resultam em conexões lentas ou instáveis.
+                </p>                
+            </div>
+
+            <h2>Geração e Leitura do Heatmap</h2>
+
+            <p>
+                No contexto de campo residencial, o "<i>heatmap</i>" é muitas vezes mental ou anotado sobre a planta/esboço do imóvel. O objetivo é visualizar onde o sinal degrada de <b>Linha Cheia (bom)</b> para <b>Linha Tracejada (degradado)</b>.
+            </p>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Dica de Experiente</h5>
+                <p>
+                    Se não houver planta baixa, desenhe um esboço rápido à mão livre. Anote o valor de dBm no centro de cada cômodo para identificar visualmente a queda de sinal conforme se afasta do roteador, ou tire um print do mapa e coloque tags manualmente.
+                </p>                
+            </div>
+
+            <h2>Interpretação Prática dos Dados</h2>
+            
+
+            <p>
+                Utilize a tabela abaixo para traduzir os números lidos nos aplicativos em decisões técnicas:
+            </p>
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Métrica</th>
+                    <th>Excelente</th>
+                    <th>Aceitável</th>
+                    <th>Problemático (Ação Necessária)</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>RSSI (Sinal)</b></td>
+                        <td>-30 a -55 dBm</td>
+                        <td>-55 a -70 dBm</td>
+                        <td>Abaixo de -70 dBm</td>
+                    </tr>
+                    <tr>
+                        <td><b>SNR (Ruído)</b></td>
+                        <td>Acima de 35 dB</td>
+                        <td>25 a 35 dB</td>
+                        <td>Abaixo de 25 dB</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ping (Latência)</b></td>
+                        <td>Menor que 10 ms</td>
+                        <td>10 a 30 ms</td>
+                        <td>Maior que 50 ms</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Regra de Ouro para Streaming 4K</h5>
+                <p>
+                    Para garantir estabilidade em vídeos de alta definição, o cliente precisa de pelo menos <b>-65 dBm</b> de sinal e <b>SNR acima de 20 dB</b>.
+                </p>                
+            </div>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <h5 class="alert-heading">🚨 O uso do SNR</h5>
+                <p>
+                    O Ruído SNR é um atributo um pouco complicado de ser levantado, dependendo muito dos ativos e formas que estão sendo levantados. Devido a essa complexidade, normalmente para ambientes residenciais ele é ignorado. Sendo necessário levantar apenas o RSSI para identificar pontos de sombra!
+                </p>                
+            </div>
+
+            <h3>Exemplos de Mapa de Calor (Heatmap)</h3>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="/static/Imagens/imagens_estudos/Pasted image 20260410104808.png" class="img-fluid">
+                    <p class="bg-danger mt-2 rounded-1 p-1 text-center"><b>Ruim</b></p>
+                    <p>
+                        Mapa de calor sem muita informação na imagem ou na baixa da OS.
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/Imagens/imagens_estudos/Pasted image 20260410104803.png" class="img-fluid">
+                    <p class="bg-warning mt-2 rounded-1 p-1 text-center"><b>Aceitável</b></p>
+                    <p>
+                        Mapa de calor crú do local, porém devidamente descrito na baixa da Os.
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/Imagens/imagens_estudos/Pasted image 20260410104757.png" class="img-fluid">
+                    <p class="bg-success mt-2 rounded-1 p-1 text-center"><b>Bom</b></p>
+                    <p>
+                        Mapa de calor devidamente legendado, e com a devida descrição na Baixa da OS.
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <img src="/static/Imagens/imagens_estudos/Pasted image 20260410104750.png" class="img-fluid">
+                    <p class="bg-primary mt-2 rounded-1 p-1 text-center"><b>Excelente</b></p>
+                    <p>
+                        Mapa de calor com breve planta rascunhada e legendado, e com a devida descrição na Baixa da OS.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Descrição na Baixa da OS</h5>
+                <p>
+                    Além do anexo visual, é <b>extremamente importante</b> que o técnico registre na baixa da OS as observações levantadas do Mapa.
+                </p>                
+            </div>
+            <p>
+                Para usar a ferramenta de mapa de calor, é necessário acessar o App <b>Wifiman ➔ Sinal ➔  Planta Baixa</b>. E basta clicar no botão "<b>Cria Nova Varredura</b>". Quando iniciar, basta seguir os passos listados até aqui, registrar um Print do mapa, legendar o mesmo e posteriormente elaborar a descrição do Anexo no script. E após isso, repassas um feedback ao cliente sobre essa sessão no final da Ordem de Serviço, explicando possíveis pontos de sombra e o passo a passo para solucionar o problema (<i>Após a validação</i>).
+            </p>
+
+            <h2>Identificação de Problemas Comuns</h2>
+
+            <h3>Obstáculos Físicos (Cenário Brasileiro)</h3>
+            <ul>
+                <li><b>Paredes de Concreto/Alvenaria:</b> Podem atenuar o sinal em até <b>25 dB</b>, transformando um sinal excelente em "<i>zona morta</i>" no próximo cômodo.</li>
+                <li><b>Água e Metal:</b> Canos embutidos em banheiros e geladeiras na cozinha bloqueiam e refletem o sinal drasticamente.</li>
+                <li><b>Móveis:</b> Colocar o roteador dentro de armários ou atrás da TV pode causar uma perda imediata de <b>6 dB</b>.</li>
+            </ul>
+
+            <p>
+                Em cenários de casas com lajes muito espessas, comuns em construções brasileiras antigas, a migração para pontos de acesso cabeados é frequentemente a única solução definitiva quando o sistema Mesh sem fio não atinge o backhaul necessário.
+            </p>
+
+            <h3>Interferências e Saturação</h3>
+            <ul>
+                <li><b>Microondas</b>: Grande vilão da frequência 2,4 GHz na cozinha.</li>
+                <li><b>Redes Vizinhas</b>: Em apartamentos, o excesso de roteadores próximos causa lentidão. Verifique se o canal 2,4 GHz está fora do padrão (<i>use apenas <b>1, 6 ou 11</b>, ou mantenha em automático em caso de duvida</i>).</li>
+            </ul>
+
+            <h2>Ações Corretivas Recomendadas</h2>
+
+            <p>
+                Se os dados coletados apontarem problemas, siga esta ordem de prioridade:
+            </p>
+            <ol>
+                <li><b>Reposicionamento</b>: Mova o roteador para o <b>centro geométrico</b> do imóvel, em local elevado (<i>1,5m a 2m do chão</i>) e longe de superfícies metálicas.</li>
+                <li><b>Ajuste de Canais</b>: Configure manualmente os canais após analisar o espectro com o Wi-Fi Analyzer. Evite o modo "<i>Automático</i>" em ambientes densos.</li>
+                <li><b>Upgrade para Mesh</b>: Se a casa tiver mais de 80-100m² ou múltiplos andares, recomende um sistema Mesh. Posicione os nós de forma que eles se "<i>enxerguem</i>" com pelo menos <b>-60 dBm</b> entre si, mas procure sempre dar preferência ao cabeado!</li>
+            </ol>
+            <h2>Checklist Final para o Técnico</h2>
+            <ul>
+            <li>✅ RSSI medido em todos os cômodos críticos (<i>Alvo: > -65 dBm</i>).</li>
+            <li>✅ Canal de 2,4 GHz fixado em 1, 6 ou 11 (<i>o menos ocupado, ou automático em caso de duvida</i>).</li>
+            <li>✅ Teste de velocidade (<i>Speedtest</i>) realizado nos pontos mais distantes.</li>
+            <li>✅ Roteador posicionado em local alto e desobstruído.</li>
+            </ul>
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="10/04/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
