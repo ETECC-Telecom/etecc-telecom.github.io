@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Estudos - Estruturação de Rede e Consultoria de TI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/estudos.html">Estudos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Encaminhar TI/IoT</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Estruturação de Rede e Consultoria de TI</h1>
+            <hr>
+
+            <p>Material de treinamento para técnicos de campo — diagnóstico, encaminhamento e comunicação com o cliente</p>
+
+            <h2>Objetivo e Princípio Central</h2>
+
+            <p>
+                Este documento alinha o olhar analítico dos técnicos durante visitas técnicas, permitindo identificar com rapidez quando a limitação está na <b>infraestrutura interna do cliente</b> e não no link de internet contratado.
+            </p>
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Pergunta-chave do diagnóstico</h5>
+                <p>
+                    <b>O link de internet está funcional, mas a experiência do cliente é ruim?</b>
+                </p>                
+                <p>
+                    Se <b>sim</b> → o foco migra imediatamente para a <b>infraestrutura interna</b>. Esse raciocínio evita trocas desnecessárias de equipamentos e direciona o atendimento corretamente.
+                </p>
+            </div>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Responsabilidade do Provedor vs. Cliente</h5>
+                <p>
+                    <b>Provedor:</b> Entrega estável do link contratado até o <b>ponto de demarcação:</b> dentro dos parâmetros técnicos do plano.            
+                </p>
+                <p>
+                    <b>Cliente:</b> Roteadores, switches, cabeamento, cobertura Wi-Fi, segmentação e políticas de segurança da rede interna.           
+                </p>
+                <p>
+                    A estruturação de TI é um <b>serviço adicional de valor:</b>, não uma obrigação contratual.             
+                </p>
+            </div>
+
+            <h2>Fluxo Geral de Diagnóstico</h2>
+            <img src="/static/Imagens/fluxogramas/Fluxo Geral de Diagnóstico.png" class="mx-auto d-block">
+
+            <H2>Avaliação Inicial do Equipamento</H2>
+
+            <p>
+                O técnico deve analisar visual e funcionalmente o roteador/equipamento principal do cliente, identificando sua categoria e possíveis sinais de limitação.
+            </p>
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Categoria</th>
+                    <th>Exemplos</th>
+                    <th>Capacidade típica</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Doméstico básico</b></td>
+                    <td>Roteadores de entrada de ISP, marcas genéricas</td>
+                    <td>Até ~15 dispositivos</td>
+                </tr>
+                <tr>
+                    <td><b>Intermediário</b></td>
+                    <td>TP-Link Archer, ASUS RT série básica</td>
+                    <td>Até ~30 dispositivos</td>
+                </tr>
+                <tr>
+                    <td><b>Corporativo</b></td>
+                    <td>Ubiquiti, MikroTik, ASUS RT-AX86U Pro</td>
+                    <td>100+ dispositivos</td>
+                </tr>
+                
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Sinais de Alerta no Equipamento</h5>
+                <ul>
+                    <li>🔥 Aquecimento excessivo</li>
+                    <li>🔁 Reinicializações frequentes ou espontâneas</li>
+                    <li>🐌 Lentidão na interface de gerenciamento</li>
+                    <li>💥 Travamentos ao conectar muitos dispositivos</li>
+                    <li>⚠️ Instabilidade geral sem causa aparente no link</li>
+                </ul>
+                <p>
+                    Esses sinais apontam para <b>limitação de CPU</b>, <b>memória ou envelhecimento do hardware</b>.
+                </p>                
+            </div>
+
+            <h2>Pontos Técnicos de Observação em Campo</h2>
+
+            <h3>1. Ativos Conectados</h3>
+
+            <p>
+                Identifique (<i>mesmo que de forma aproximada</i>) quantos dispositivos estão ativos via cabo e Wi-Fi:
+            </p>
+            <ul>
+                <li>Smartphones, tablets, notebooks</li>
+                <li>TVs, videogames, set-top boxes</li>
+                <li>Câmeras IP, automação, sensores</li>
+                <li>Maquininhas de cartão, sistemas de caixa, servidores</li>
+            </ul>
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Referência Prática</h5>
+                <p>
+                    A partir de <b>20–30 dispositivos simultâneos</b> em um roteador doméstico, surgem limitações naturais de processamento, memória e gerenciamento de conexões. Em ambientes comerciais, esse impacto é intensificado por aplicações críticas rodando em paralelo.
+                </p>                
+            </div>
+            
+            <h3>2. Cobertura de Wi-Fi</h3>
+
+            <p>
+                Avalie a distribuição do sinal de forma prática pelo ambiente:
+            </p>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Fatores que degradam a cobertura</h5>
+                <ul>
+                    <li>Paredes grossas, lajes de concreto e estruturas metálicas</li>
+                    <li>Grandes distâncias entre o roteador e os pontos de uso</li>
+                    <li>Uso excessivo de repetidores (<i>aumentam latência</i>)</li>
+                    <li>Roteador posicionado em locais fechados ou escondidos</li>
+                    <li>Interferência de outros equipamentos (<i>fornos de micro-ondas, câmeras sem fio</i>)</li>
+                </ul>
+                <p>
+                    💡 Muitas reclamações atribuídas à internet são, na realidade, <b>problemas de cobertura e interferência</b>.
+                </p>                
+            </div>
+
+            <h3>3. Perfil de Consumo do Cliente</h3>
+
+            <p>
+                Entenda o uso predominante da rede antes de concluir o diagnóstico:
+            </p>
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Perfil de Uso</th>
+                    <th>Exigência Principal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Navegação e redes sociais</td>
+                    <td>Baixa</td>
+                </tr>
+                <tr>
+                    <td>Streaming HD/4K</td>
+                    <td>Banda e estabilidade</td>
+                </tr>
+                <tr>
+                    <td>Jogos online</td>
+                    <td>Latência baixa e jitter mínimo</td>
+                </tr>
+                <tr>
+                    <td>Trabalho remoto (VPN, videochamada)</td>
+                    <td>Latência, estabilidade e upload</td>
+                </tr>
+                <tr>
+                    <td>CFTV, VoIP, servidores, automação</td>
+                    <td>Latência ultra-baixa, confiabilidade</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Métricas Técnicas Essenciais</h2>
+
+            <p>Velocidade não é tudo As métricas abaixo revelam a <b>saúde real da rede</b>, indo além da velocidade contratada.</p>
+            
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Métrica</th>
+                    <th>O que indica</th>
+                    <th>Impacto quando elevado</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Latência (ping)</b></td>
+                    <td>Tempo de ida e volta de um pacote</td>
+                    <td>Lentidão em nuvem e tempo real</td>
+                </tr>
+                <tr>
+                    <td><b>Jitter</b></td>
+                    <td>Variação da latência</td>
+                    <td>Instabilidade em VoIP, vídeo, VPN</td>
+                </tr>
+                <tr>
+                    <td><b>Consumo de dados</b></td>
+                    <td>Volume trafegado no período</td>
+                    <td>Sobrecarga no roteador de borda</td>
+                </tr>
+                <tr>
+                    <td><b>Perda de pacotes</b></td>
+                    <td>Pacotes que não chegam ao destino</td>
+                    <td>Quedas, reconexões, erros</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>O que é Bufferbloat?</h3>
+
+            <p>
+                <b>Bufferbloat</b> — Definição Ocorre quando um roteador possui filas de memória (<i>buffers</i>) excessivamente grandes e mal gerenciadas. Em vez de descartar pacotes para sinalizar congestionamento, o equipamento os acumula, causando <b>aumento drástico de latência e jitter</b> mesmo sem perda de dados.
+            </p>
+            <p>
+                <b>Analogia:</b> Uma rodovia com acostamento infinito onde os carros param em fila — a mercadoria chega, mas com atraso que inviabiliza aplicações em tempo real (<i>VoIP, jogos, videoconferências</i>).
+            </p>
+
+            <h3>Quando Encaminhar para TI</h3>
+            <img src="/static/Imagens/fluxogramas/Quando Encaminhar para TI.png" class="mx-auto d-block">
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Leitura Rápida em Campo Responda mentalmente estas 3 perguntas:</h5>
+                <ol>
+                    <li>A infraestrutura atual <b>atende o perfil de uso</b> do cliente?</li>
+                    <li>O equipamento <b>suporta</b> a quantidade de ativos conectados?</li>
+                    <li>A cobertura Wi-Fi é <b>adequada</b> para o ambiente — e não pode ser resolvida com apenas um segundo ponto padrão?</li>
+                </ol>
+                <p>
+                    Se qualquer resposta for <b>não</b>, o encaminhamento para TI é necessário.
+                </p>                
+            </div>
+
+            <h2>Referência de Consumo de Dados</h2>
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Volume Mensal</th>
+                    <th>Interpretação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Até 200 GB</td>
+                    <td>Normal para a maioria dos ambientes residenciais</td>
+                </tr>
+                <tr>
+                    <td>200 – 500 GB</td>
+                    <td>Atenção — avaliar quantidade de ativos e tipo de uso</td>
+                </tr>
+                <tr>
+                    <td>Acima de 500 GB</td>
+                    <td>Carga constante; pressiona equipamentos de borda</td>
+                </tr>
+                <tr>
+                    <td>Acima de 800 GB</td>
+                    <td>Fortemente indicado encaminhamento para avaliação de TI</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Atenção</h5>
+                <p>
+                    O consumo deve sempre ser analisado <b>em conjunto</b> com o número de dispositivos e o tipo de aplicação utilizada. Um único servidor de backup ou câmera em gravação contínua pode gerar alto consumo sozinho.
+                </p>                
+            </div>
+
+            <h2>IoT — Avaliação Específica</h2>
+            <h3>Cenários e Recomendações</h3>
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Cenário</th>
+                    <th>Diagnóstico</th>
+                    <th>Recomendação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Início da automação</b></td>
+                    <td>Poucos dispositivos ou planejamento inicial</td>
+                    <td>Migrar para protocolos que não sobrecarregam o Wi-Fi (ex: Zigbee, Thread)</td>
+                </tr>
+                <tr>
+                    <td><b>Casa saturada</b></td>
+                    <td>Muitos dispositivos Wi-Fi em roteador comum, lentidão</td>
+                    <td>Upgrade para roteador robusto com foco em gerenciamento de IP e segmentação</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>Critérios Técnicos para Roteadores em Redes IoT</h3>
+            <p>
+                Em redes IoT, alguns recursos deixam de ser diferenciais e passam a ser <b>requisitos estruturais</b>:
+            </p>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Segmentação de Rede (VLANs)</h5>
+                <p>
+                    <b>O pilar mais importante.</b> Dispositivos IoT possuem firmwares simples e baixo nível de segurança. Sem VLANs, uma falha em uma lâmpada inteligente pode expor servidores e dados sensíveis.
+                </p>  
+                <p>
+                    Com VLANs: cada segmento fica isolado, o impacto de comprometimentos fica contido, e o diagnóstico de falhas se torna mais preciso.
+                </p>              
+            </div>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Segurança Avançada (Firewall, IDS)</h5>
+                <p>
+                    Em ambientes com muitos dispositivos, o roteador passa a ser um <b>ponto de controle de segurança</b>. Soluções como HomeShield, AiProtection e firewalls corporativos criam uma camada preventiva que reduz riscos operacionais, especialmente sem equipe de TI dedicada.
+                </p>                
+            </div>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Capacidade de Processamento (CPU e RAM)</h5>
+                <p>
+                    Roteadores domésticos simples <b>travam</b> ao gerenciar 40–50+ dispositivos — não por falta de internet, mas por limitação de memória e processamento.
+                </p>           
+                <p>
+                    Equipamentos com <b>CPU multi-core e maior RAM</b> sustentam 150–200 dispositivos sem degradação perceptível.
+                </p>     
+            </div>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Desempenho na Banda 2,4 GHz</h5>
+                <p>
+                    A maioria dos dispositivos IoT opera <b>exclusivamente em 2,4 GHz</b> pelo maior alcance e menor consumo energético. Um roteador excelente em 5 GHz mas fraco em 2,4 GHz causará instabilidade justamente nos dispositivos de automação.
+                </p>                
+            </div>
+
+            <h3>Tecnologias Wi-Fi Importantes para IoT</h3>
+
+            <img src="/static/Imagens/fluxogramas/Tecnologias Wi-Fi Importantes para IoT.png" class="mx-auto d-block">
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Matter e Thread — O futuro da IoT (2025+)</h5>
+                <p>
+                    Roteadores modernos já atuam como <b>Border Routers</b>, gerenciando redes Thread. Dispositivos IoT formam uma rede mesh própria, de baixo consumo, <b>separada do Wi-Fi tradicional</b>.
+                </p>
+                <p>
+                    Isso representa um salto de maturidade para projetos de automação residencial e corporativa.
+                </p>
+            </div>
+            
+            <h3>Referências de Mercado</h3>
+
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Equipamento</th>
+                    <th>Destaque</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>TP-Link Deco X50</b></td>
+                    <td>Excelente para Mesh residencial/SMB, Wi-Fi 6, fácil gerenciamento</td>
+                </tr>
+                <tr>
+                    <td><b>ASUS RT-AX86U Pro</b></td>
+                    <td>Alta performance, AiProtection, ideal para ambientes mistos</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <h5 class="alert-heading">🚨 Alinhamento de expectativa com o cliente</h5>
+                <p>
+                    <b>Estabilidade exige ativos compatíveis com a demanda.</b> Antes de recomendar, deixe claro o investimento necessário para que o cliente tome uma decisão informada.
+                </p>                
+            </div>
+
+            <h2>Gestão de Expectativa e Comunicação com o Cliente</h2>
+
+            <h3>Por que o cliente questiona?</h3>
+
+            <p>
+                É comum que clientes PJ questionem por que a necessidade de estruturação não foi identificada na contratação ou instalação. Esse questionamento é <b>legítimo e deve ser tratado com maturidade técnica</b>.
+            </p>
+
+            <p>
+                Explicação para o cliente Na contratação, o único parâmetro dimensionável objetivamente é a <b>velocidade do link</b>.
+            </p>
+            <p>
+                A complexidade da rede interna — quantidade real de dispositivos, padrão de uso simultâneo, interferências físicas, crescimento operacional — <b>só se manifesta com a operação em carga real</b>. Muitos ambientes funcionam bem nos primeiros dias e apresentam instabilidade conforme o uso se intensifica.
+            </p>
+
+            <h3>Roteiro de Fala — Script para o Técnico em Campo</h3>
+
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Script recomendado</h5>
+                <p>
+                    <i>
+                        Sua internet está funcionando corretamente dentro do plano contratado. O que está limitando sua experiência hoje não é a internet em si, mas a estrutura interna da sua rede
+                    </i>
+                </p>
+                <p>
+                    <i>
+                        Quando o serviço é contratado, conseguimos dimensionar a velocidade, mas não conseguimos prever exatamente quantos equipamentos estarão conectados, como será o uso simultâneo, as interferências do ambiente e o crescimento da operação. Essas limitações só aparecem com o uso real
+                    </i>
+                </p>
+                <p>
+                    <i>
+                        A rede interna é responsabilidade do cliente. Nossa atuação com estruturação de TI entra como um serviço de apoio, justamente para corrigir esse tipo de limitação quando ela se manifesta. A ideia não é dizer que algo foi feito errado, mas ajustar a estrutura para a realidade atual do seu uso e garantir estabilidade daqui para frente.
+                    </i>
+                </p>                
+            </div>
+
+            <h3>Mensagem-chave (versão resumida)</h3>
+
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Frase de impacto para o cliente</h5>
+                <p>
+                    <i>Sua internet está funcionando corretamente. O que está limitando sua experiência é a estrutura interna da rede, que não está adequada para o seu tipo de uso atual.</i>
+                </p>                
+            </div>
+
+            <h2>Postura e Checklist Final do Técnico</h2>
+
+            <ul>
+                <li>✅ Linguagem clara, acessível e sem jargão desnecessário</li>
+                <li>✅ Embasamento técnico — nunca opiniões sem evidência</li>
+                <li>✅ Transparência total com o cliente sobre o diagnóstico</li>
+                <li>✅ Registro adequado em Ordem de Serviço (OS)</li>
+                <li>✅ Encaminhamento assertivo para TI quando necessário</li>
+                <li>❌ Nunca concluir sem validar o link primeiro</li>
+                <li>❌ Nunca trocar equipamento do provedor sem confirmar que o problema não é da infra interna</li>
+            </ul>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Objetivo Final Garantir</h5>
+                <p>
+                    <b>diagnóstico correto</b>, <b>encaminhamento assertivo</b>, <b>redução de retrabalho</b> e <b>aumento da qualidade do atendimento</b> — protegendo a experiência do cliente e a maturidade operacional da equipe.
+                </p>                
+            </div>
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/04/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
