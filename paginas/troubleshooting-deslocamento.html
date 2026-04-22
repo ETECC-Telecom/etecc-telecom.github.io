@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Guia de Troubleshooting (Encerramento de Deslocamento para Registro)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sinal Alto</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Encerramento de Deslocamento para Registro</h1>
+            <hr>
+            
+            <h2>Objetivo</h2>
+
+            <p>
+                Padronizar o uso do <b>encerramento de deslocamento</b> como ferramenta de registro operacional, visando:
+            </p>
+            <ul>
+                <li>Reduzir tempo de análise de clientes ofensores;</li>
+                <li>Aumentar a assertividade das análises;</li>
+                <li>Proteger o técnico de cobranças indevidas;</li>
+                <li>Registrar o contexto real da operação em campo;</li>
+            </ul>
+
+            <h2>Contexto Atual</h2>
+  
+            <p>
+                O sistema MK já permite:
+            </p>
+            <ul>
+                <li>Iniciar um deslocamento</li>
+                <li>Encerrar o deslocamento no local</li>
+                <li>Registrar um motivo (ex: <i>Cliente sem contato na visita</i>)</li>
+            </ul>
+            <p>
+                Atualmente, esse recurso é subutilizado para análise de ofensores.
+            </p>
+
+            <h2>Nova Aplicação da Ferramenta</h2>
+  
+            <p>
+                A partir de agora, o técnico deve utilizar o <b>encerramento de deslocamento como registro estratégico</b>, sempre que identificar uma situação que possa impactar sua produtividade ou gerar um cliente ofensor.  
+            </p>
+
+            <h3>Regra Operacional</h3>  
+            
+            <p>
+                Sempre que houver risco de gerar um cliente ofensor, o técnico deve:  
+            </p>
+            <ol>
+                <li>Iniciar o deslocamento;</li>
+                <li>Encerrar imediatamente;</li>
+                <li>Registrar o motivo de forma clara;</li>
+            </ol>
+            
+            <h2>Por que isso é importante?</h2>
+  
+            <p>Sem esse registro:</p>  
+            <ul>
+                <li>A análise depende de investigação manual;</li>
+                <li>O tempo de resposta aumenta;</li>
+                <li>O contexto real pode se perder;</li>
+            </ul>
+            <b>Com o registro</b>  
+            <ul>
+                <li>A análise se torna direta;</li>
+                <li>O motivo fica explícito;</li>
+                <li>Evita interpretações incorretas;</li>
+            </ul>
+
+            <h2>Casos Obrigatórios de Registro</h2>
+            
+            <h3>Tentativa de Contato</h3>
+            <ul>
+                <li>Quando não conseguir contato com o cliente;</li>
+                <li>Informar que houve tentativa e que irá retornar;</li>
+            </ul>
+            <b>Exemplo:</b>  
+            <p>
+                <i>"Cliente sem contato. Tentativa realizada, retorno posterior planejado."</i>
+            </p>   
+            
+            <h3>Dias de Chuva</h3>
+            <ul>
+                <li>Quando a operação for impactada por chuva forte;</li>
+            </ul>
+            <b>Ação esperada:</b>  
+            <ul>
+                <li>Sinalizar nos grupos;</li>
+                <li>Iniciar deslocamento para o próximo cliente;</li>
+                <li>Encerrar com o motivo;</li>
+            </ul>
+            <b>Exemplo:</b>  
+            <p>
+                <i>"Parado devido a chuva forte, aguardando melhora para deslocamento."</i>
+            </p>  
+            
+            <h3>Otimização Logística</h3>
+            <ul>
+                <li>Quando priorizar clientes mais próximos fora da ordem padrão;</li>
+            </ul>            
+            <b>Critério:</b>  
+            <ul>
+                <li>Deslocamentos menores que 10 minutos;</li>
+            </ul>
+            <b>Exemplo:</b>  
+            <p>
+                <i>"Priorizado cliente mais próximo para otimização de rota."</i>
+            </p>  
+                
+            
+            <h3>Almoço / Emergências</h3>
+            <ul>
+                <li>Quando houver pausa necessária no fluxo;</li>
+            </ul>
+            <b>Inclui:</b> 
+            <ul> 
+                <li>Almoço;</li>
+                <li>Situações emergenciais;</li>
+            </ul>
+            <b>Exemplo:</b>  
+            <p>
+                <i>"Pausa para almoço antes de atendimento de cliente prioritário."</i>
+            </p>  
+
+            <h2>Fluxo Resumido</h2>
+
+            <img src="/static/Imagens/fluxogramas/Encerramento de Deslocamento para Registro.png" class="mx-auto d-block">
+            
+            <h2>Regra Crítica</h2>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Importante</h5>
+                <p>
+                    O registro deve ser <b>claro, objetivo e fiel ao que aconteceu</b>.
+                </p>
+                <p>
+                    Evite descrições vagas ou genéricas.
+                </p>
+            </div>
+
+            <h2>Impacto para o Técnico</h2>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Dica</h5>
+                <p>
+                    Esse registro funciona como sua <b>proteção operacional</b>.
+                </p>                
+            </div>
+            
+            <p><b>Sem registro:</b></p>
+            <ul>
+                <li>Pode parecer improdutividade;</li>
+                <li>Gera questionamentos;</li>
+            </ul>
+            <p><b>Com registro:</b></p>
+            <ul>
+                <li>Contexto fica documentado;</li>
+                <li>Reduz cobranças indevidas;</li>
+                <li>Aumenta confiança na análise;</li>
+            </ul>
+
+            <h2>Risco de Não Aderência</h2>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Alerta</h5>
+                <p>
+                    Se os registros não forem feitos corretamente:
+                </p>
+                <ul>
+                    <li>Os dados perdem confiabilidade;</li>
+                    <li>A análise continua lenta;</li>
+                    <li>O técnico fica exposto a interpretações incorretas;</li>
+                </ul>
+            </div>
+
+            <h2>Regra de Ouro</h2>
+
+            <p>
+                O registro de deslocamento é a <b>voz do técnico no sistema</b>.
+            </p>
+
+            <p>
+                Use com responsabilidade, clareza e consistência.
+            </p>
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="22/04/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
