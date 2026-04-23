@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Registro de Cliente Sem Contato</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Registro de Cliente Sem Contato</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Registro de Cliente Sem Contato</h1>
+            <hr>
+            
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <form id="meuFormulario">
+                    <select class="form-select" name="tecnico" required>
+                        <option value="Alexsandro Henrique da Silva Lira">Alexsandro Henrique da Silva Lira</option>
+                        <option value="Augusto Cesar Sofiati">Augusto Cesar Sofiati</option>
+                        <option value="Bruno Dos Santos Alencar">Bruno Dos Santos Alencar</option>
+                        <option value="Clayton Cerqueira de Souza">Clayton Cerqueira de Souza</option>
+                        <option value="Lucas Rodrigues de Camargo">Lucas Rodrigues de Camargo</option>
+                        <option value="Renan Gomes da Silva">Renan Gomes da Silva</option>
+                        <option value="Ricardo Braz dos Santos">Ricardo Braz dos Santos</option>
+                        <option value="Gustavo de Souza Lima">Gustavo de Souza Lima</option>
+                        <option value="Jonatas Ramon Oliveira Cavalcante">Jonatas Ramon Oliveira Cavalcante</option>
+                        <option value="Raphael dos Anjos">Raphael dos Anjos</option>
+                        <option value="Fernando Gustavo">Fernando Gustavo</option>
+                    </select>
+                    <div class="mb-3 mt-3">
+                        <label for="cliente" class="form-label">Nome do Cliente:</label>
+                        <input type="text" class="form-control" id="cliente" placeholder="Nome do Cliente sem Contato" name="cliente" required>
+                    </div>
+                    
+                    <label for="comment">Descrição:</label>
+
+                    <textarea 
+                        class="form-control" 
+                        rows="5" 
+                        id="descricao" 
+                        name="descricao" 
+                        placeholder="Descreva o motivo da falta de contato, ou quantas tentativas foram realizadas até o momento!"
+                        required></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Enviar Relatório</button>
+                </form>
+            </div>
+            <div class="col-sm-2"></div>
+
+
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="23/04/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwYqTeCB9N2iWs19PPuXEUZuel5WPNgiKRe-1BRmfrJ3SNZThgdB7_v0dTyycuUOD-s/exec'
+        const form = document.getElementById('meuFormulario')
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Dados enviados com sucesso!"))
+            .catch(error => console.error('Erro!', error.message))
+        })
+    </script>
+</body>
+
+</html>
+
