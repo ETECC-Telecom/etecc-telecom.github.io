@@ -76,6 +76,36 @@
         </div>
     </div>
     <etecc-revisao version="001" author="Raphael dos Anjos" date="23/04/2026"></etecc-revisao>
+    
+    <!--Modais de Comunicação-->
+
+    <div class="modal" id="ModalLoad">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Enviando Relatório...</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+                <h1><div class="spinner-grow text-success"></div></h1>
+                <h2>Por Favor Aguarde</h2>
+                <p>Seu Relatório está sendo encaminhado...</p>
+                
+
+            </div>
+
+            <!-- Modal footer -->
+            
+
+            </div>
+        </div>
+        </div>
+
+    <!--Fim Modais-->
+
 
     <etecc-footer></etecc-footer>
 
@@ -84,12 +114,29 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwYqTeCB9N2iWs19PPuXEUZuel5WPNgiKRe-1BRmfrJ3SNZThgdB7_v0dTyycuUOD-s/exec'
         const form = document.getElementById('meuFormulario')
 
+        // Seleciona o elemento pelo ID
+        const meuModalElemento = document.getElementById('ModalLoad');
+
+        // Cria a instância do modal do Bootstrap
+        const meuModal = new bootstrap.Modal(meuModalElemento);
+
+        
+
+        
+
+
         form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert("Dados enviados com sucesso!"))
-            .catch(error => console.error('Erro!', error.message))
-        })
+            // Para abrir:
+            meuModal.show();
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Para fechar:
+                    meuModal.hide();
+                    //alert("Dados enviados com sucesso!")
+                })
+                .catch(error => console.error('Erro!', error.message))
+            })
     </script>
 </body>
 
