@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Troubleshooting - Guia para Cadastro de Comunicado de Ausência</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Guia para Cadastro de Comunicado de Ausência</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Guia para Cadastro de Comunicado de Ausência</h1>
+            <hr>
+            
+            <p>
+                O comunicado de ausência deve ser gerado com, no mínimo, 3 dias de antecedência sempre que o técnico tiver uma consulta médica ou precisar se ausentar por qualquer outro motivo, seja por um período parcial ou pelo dia inteiro.
+            </p>
+
+            <h2>Gerando um Comunicado</h2>
+
+            <ol>
+                <li><b>Acesso</b>: Abra o aplicativo Vivaintra.</li>
+                <li><b>Navegação</b>: Clique no menu inferior direito e selecione a opção "<i>Comunicado Interno</i>".</li>
+                <li><b>Criação</b>: Na janela que se abrir, clique no botão "<i>Adicionar</i>".</li>
+            </ol>
+
+            <div class="row mb-3">
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded-4" src="/static/Imagens/imagens_troubleshooting/infográfico Comunicado_g20_comunicado-ausencia.webp">
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded-4" src="/static/Imagens/imagens_troubleshooting/infográfico Comunicado_g13_comunicado-ausencia.webp">
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded-4" src="/static/Imagens/imagens_troubleshooting/infográfico Comunicado_g14_comunicado-ausencia.webp">
+                </div>
+            </div>
+
+            <h3>Preenchimento do Formulário</h3>
+
+            <p>
+                Preencha os campos conforme as orientações abaixo:
+            </p>
+
+            <ul>
+                <li><b>Assunto:</b> Comunicado de Ausência – <kbd>[Seu Nome]</kbd> – <kbd>[Data da Ausência]</kbd></li>
+                <li><b>Finalidade:</b> Selecione "<b>Comunicado</b>".</li>
+                <li><b>Data Limite de Retorno:</b> Defina para uma semana após a data atual.</li>
+                <li><b>Responsável Direto:</b> Fernando Gustavo.</li>
+            </ul>
+
+            <h3>Configuração de Destinatários (Cópias)</h3>
+
+            <p>
+                Agora, defina quem deverá receber este comunicado:
+            </p>
+            <ol>
+                <li>No final da página, clique em <b>"Selecionar Cópias"</b>.</li>
+                <li>No modal que abrir, selecione o <b>Departamento</b> desejado.</li>
+                <li>Marque os colaboradores específicos ou selecione<b>Todos</b>do setor.</li>
+                <li>Clique em <b>"Adicionar"</b> para confirmar a associação.</li>
+            </ol>
+            <p>
+                <b>Quem deve ser incluído nas cópias:</b>
+            </p>
+            <ul>
+                <li>Todos do RH;</li>
+                <li>Todos da Torre;</li>
+                <li>Líder do Suporte Interno;</li>
+                <li>Fernando Gustavo Alves dos Santos;</li>
+                <li>Raphael dos Anjos.</li>
+            </ul>
+
+            <div class="row mb-3">
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded-4" src="/static/Imagens/imagens_troubleshooting/infográfico Comunicado_g38_comunicado-ausencia.webp">
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded-4" src="/static/Imagens/imagens_troubleshooting/infográfico Comunicado_g39_comunicado-ausencia.webp">
+                </div>
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded-4" src="/static/Imagens/imagens_troubleshooting/infográfico Comunicado_image1-79_comunicado-ausencia.webp">
+                </div>
+            </div>
+
+            <h3>Corpo do Comunicado</h3>
+
+            <p>
+                Utilize o modelo estruturado abaixo no campo de mensagem, adaptando as informações entre colchetes:
+            </p>
+            
+            <div class="copy-container inline-flex">
+                    <div>
+                        <div class="alert alert-secondary mt-3" role="alert">
+                            <h5 class="alert-heading">❞ Script para o Comunicado</h5>
+                            <p>
+                                <span class="text-to-copy">
+                                    Prezados(as),<br><br>
+
+                                    Informo que estarei ausente no dia [Data], em razão de [Motivo da Ausência], a partir das [Hora].<br><br>
+
+                                    Minha ausência será:<br><br>
+
+                                    - Temporária: das [Hora de início] às [Hora de retorno].<br>
+                                    - Período: Dia inteiro (selecionar conforme o caso).
+                                </span>
+                            </p>               
+                        </div>
+                        
+                    </div>
+
+                    <button class="btn btn-outline-dark copy-btn btn-sm m-1" type="button"
+                            title="Copiar para a área de transferência">
+                        <i class="bi bi-clipboard"></i> <span>Copiar</span>
+                    </button>
+                </div>
+            
+            
+
+            <h3>Finalização Importante</h3>
+
+            <div class="alert alert-warning mt-3" role="alert">
+                <h5 class="alert-heading">⚠ Desabilite o Email</h5>
+                <p>
+                    No final do formulário, <b>desabilite</b> a função "Enviar por E-mail" antes de salvar.
+                </p>                
+            </div>
+            
+
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="05/05/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+    <script src="/src/copiar_transferencia.js"></script>
+</body>
+
+</html>
+
