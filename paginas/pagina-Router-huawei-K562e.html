@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Página Router Huawei K562e-10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/configuracaorouter.html">Configuração de Router</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Router Huawei K562e-10</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <h1 class="mb-3">Router Huawei K562e-10</h1>
+            <hr>
+
+            <div class="col-sm-3">
+
+                <img class="img-fluid" src="/static/Imagens/card-routers_g17.webp" alt="Imagem ilustrativa de um Router">
+                <p class="mt-3 text-center text-uppercase"><b>Router Huawei K562e-10</b></p>
+                <p>
+                    <b>Fontes:</b> 1A 12V <br>
+                    <b>Login:</b> <span class="criptografado" value="U2FsdGVkX19ijV7bd74GvlxFCTJyWVUNF+/xenI8IxU="><kbd>Sensível</kbd></span><br>
+                    <b>Senha:</b> <span class="criptografado" value="U2FsdGVkX1+JGgwGLWRcGfdue3xo71LyVCPw6ip4OtA="><kbd>Sensível</kbd></span>   
+                </p>  
+                <br>
+                <!--
+                <div class="d-grid">
+                    <a class="btn btn-sm btn-outline-dark btn-block" href="/static/atualizações/Atualizacao-ONT-Huawei-x6v10">
+                        BIN de Atualização
+                    </a>
+                </div>  
+                --> 
+                <div class="copy-container d-flex justify-content-between align-items-center">
+                    <div>
+                        <b>IP:</b> <span class="text-to-copy">192.168.101.1</span>
+                    </div>
+
+                    <button class="btn btn-outline-dark copy-btn btn-sm m-1" type="button"
+                            title="Copiar para a área de transferência">
+                        <i class="bi bi-clipboard"></i> <span>Copiar</span>
+                    </button>
+                </div>
+                
+                <div class="alert alert-danger" role="alert">
+                    <strong>Atenção:</strong> Vale lembrar que Aparelhos Huawei só são compatíveis com suas Fontes Originais!
+                </div>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-1" class="text-decoration-none text-body">Introdução</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-2" class="text-decoration-none text-body">Provisionamento</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-3" class="text-decoration-none text-body">Acessando as configurações</a>
+                    </li>
+                </ul>
+
+            </div>
+            
+
+            <div class="col-sm-9">
+                <h2 id="Sumario-1">Introdução</h2>
+                <hr>
+
+                <p>
+                    O roteador Huawei K562e-10 trabalha no protocolo wireless IEEE 802.11 ax WIFI6! Ele tem 4 entradas que funcionam como WAN, sendo assim pode colocar o cabo que vem da ONU em qualquer entrada do roteador, porém recomendamos que para seguir o padrão de instalação deixe o cabo na entrada mais próxima da fonte de energia, a entrada de número 4!
+                </p>
+                
+                <img class="img-fluid rounded-4" src="/static/Imagens/configuracao-K562e-10-1.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                <br><br>
+                <h2 id="Sumario-2">Provisionamento</h2>
+
+                <ul>
+                    <li>Acesse o aplicativo INT6 e em seguida a aba “<b>Atendimento</b>”;</li>
+                    <li>Insira o código da conexão do cliente e continue;</li>
+                    <li>Escolher o processo que deseja realizar! Nesse tutorial mostrarei o provisionamento da ONU + Configuração do AP escolhendo ->”<b>Nova Instalação</b>”;</li>
+                </ul>
+
+                <div class="row mb-4">
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114617.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114621.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114624.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                </div>
+
+                <ul>
+                    <li>Irá aparecer as informações do cadastro, caso esteja certo clique em confirmar;</li>
+                    <li>Confirme a localização da instalação;</li>
+                    <li>Insira o SN do equipamento a ser provisionado ou scannear a etiqueta a embaixo da ONU para identificar o MAC;</li>
+                    <li>Informe o modelo do equipamento a ser provisionado corretamente;</li>
+                </ul>
+
+                <div class="row mb-4">
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114934.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114938.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114941.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516114945.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                </div>
+
+
+                <ul>
+                    <li>Insira o nome e senha da rede Wireless que o cliente deseja;</li>
+                    <li>Aguarde a finalização do provisionamento e no final clique em “<b>Continuar</b>”;</li>
+                    <li>Minimize o aplicativo (<i>não o feche</i>), desligue os dados móveis e procure a rede Wireless que vem de fábrica chamada “<b>HUAWEI-KCH7</b>” para se conectar;</li>
+                </ul>
+
+
+                <div class="row mb-4">
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516115304.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516115307.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516115311.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516115315.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                    </div>
+                </div>
+
+                <ul>
+                    <li>
+                        Procure a senha na etiqueta em baixo do roteador chamada “<b>WLAN Key</b>”;
+                    </li>
+                </ul>
+
+                <img class="img-fluid rounded-4 shadow mb-4" src="/static/Imagens/Pasted image 20260516115540.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                
+                <ul>
+                    <li>Volte ao aplicativo e inicie o processo de configuração;</li>
+                    <li>No meio do processo o aplicativo irá pedir a senha de acesso as configurações do roteador que estará na etiqueta abaixo dele com nome de “<b>Password</b>”, digite essa senha e clique em OK!</li>
+                </ul>
+
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516115849.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516115853.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                </div>
+
+                <ul>
+                    <li>
+                        O aplicativo irá realizar uma pré-configuração e solicitará para aguardar no máximo 1 minuto!
+                    </li>
+                </ul>
+
+                <div class="alert alert-warning mt-3" role="alert">
+                    <h5 class="alert-heading"></h5>
+                    <p>
+                        ⚠ Será necessário então se reconectar novamente na rede wi-fi “HUAWEI-KCH7“ como instruído anteriormente com a senha que consta na etiqueta, e apertar em “continuar configuração para finalizar o processo.
+                    </p>                
+                </div>
+
+                <div class="row mb-4 text-center">
+                    <div class="col-sm-6">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516120011.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-fluid rounded-4 shadow" src="/static/Imagens/Pasted image 20260516120015.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                    </div>
+                </div>
+                
+                <h2 id="Sumario-3">Acessando as configurações</h2>
+
+                <p>
+                    Após o provisionamento para acessar as configurações do roteador basta conectar a rede e acessar via IP: <kbd>192.168.101.1</kbd>. As credencias estão no cabeçalho da página!
+                </p>
+
+                <p>
+                    Caso acesse o roteador resetado antes de provisionar, as credenciais estarão na etiqueta abaixo do roteador.
+                </p>
+
+                <img class="img-fluid rounded-4 shadow mb-4" src="/static/Imagens/Pasted image 20260516120754.png" alt="Imagem ilustrativa da configuração da K562e-10">
+                
+                <p>
+                    <b>Acessando o PPPoE:</b>
+                </p>
+
+                <img class="img-fluid rounded-4 shadow mb-4" src="/static/Imagens/Pasted image 20260516120818.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                <p>
+                    <b>Acessando o Wifi:</b>
+                </p>
+
+                <img class="img-fluid rounded-4 shadow mb-4" src="/static/Imagens/Pasted image 20260516120829.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                <p>
+                    <b>Acessando as configurações de Acesso Remoto:</b>
+                </p>
+
+                <img class="img-fluid rounded-4 shadow mb-4" src="/static/Imagens/Pasted image 20260516120900.png" alt="Imagem ilustrativa da configuração da K562e-10">
+
+                
+                <btn-topo></btn-topo>
+            </div>
+        </div>
+    </div>
+    
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="16/05/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+    <script src="/src/copiar_transferencia.js"></script>
+    <script src="/app.js"></script>
+
+    <script src="/src/crypto-js.min.js"></script>
+    <script src="/src/criptografia.js"></script>
+</body>
+
+</html>
