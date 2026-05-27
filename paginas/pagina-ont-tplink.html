@@ -122,6 +122,29 @@
                 <h2 id="Sumario-1">Configuração Inicial (Primeiro ou após reset)</h2>
                 <hr>
 
+                <p>
+                    Inicialmente, se você está configurando uma ONT, você deve habilitá-la ou será <b>necessário solicitar à torre que habilite a ONT</b>, pois o equipamento não conclui a configuração por meio do aplicativo “<b>Etecc Instalador</b>”. Já no caso da C5, você irá apenas configurar um Router em uma ONU Bridge. Após a habilitação pela torre, prossiga com a configuração apenas da parte "<b>AP</b>" do equipamento.
+                </p>
+
+                <p>
+                    Quando iniciamos uma ONT ou um C5 pelo primeira vez iremos se deparar com a página de configuração da senha de Acesso. A página a baixo é da ONT, mas no C5 segue a mesma lógica:
+                </p>
+
+                <img class="img-fluid" src="/static/Imagens/ont_tplink_c5_config_inicial01.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                
+                <div class="alert alert-primary mt-3" role="alert">
+                    Adicione a Senha de Acesso padrão para cada tipo de aparelho!
+                </div>
+
+                <p>
+                    Após acessar a ONT pelo acesso padrão da etiqueta, o próprio ativo ira ter um quick setup para que possamos fazer as configurações iniciais do mesmo. Nessa parte, apenas defina o fuso horário e clique em próximo. A partir dai, vamos no menu superior -> <b>Avançado</b>.
+                </p>
+                <img class="img-fluid mb-3" src="/static/Imagens/ont_tplink_c5_config_inicial02.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                
+                <p>
+                    Basicamente é isso para a configuração inicial do router. Agora basta dar prosseguimento com as demais configurações para subir acesso. 
+                </p>
+
                 <h2 id="Sumario-2">Alteração de Senha de Acesso</h2>
                 <hr>
 
@@ -131,6 +154,25 @@
                 <h2 id="Sumario-4">Configuração de PPPoE</h2>
                 <hr>
                 
+                <p>
+                    A configuração de PPPoE deve ser feita na aba Avançado -> Rede -> XPON WAN. E na parte de Interface WAN XPON, vamos clicar no <b>ícone de edição</b> na coluna de Modificar:
+                </p>
+
+                <img class="img-fluid mb-3" src="/static/Imagens/ont_tplink_c5_config_pppoe1.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                <p>
+                    Após seguir esse processo será listado uma grande gama de configurações. Embora eu esteja focando em todo o guia apresentado, seu foco deverá ser na linha <b>Tipo de Conexão de Internet</b>, onde deverá aplicar o PPPoE do cliente nos campos a baixo. 
+                </p>
+
+                <img class="img-fluid mb-3" src="/static/Imagens/ont_tplink_c5_config_pppoe2.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <img class="img-fluid mb-3" src="/static/Imagens/ont_tplink_c5_config_pppoe3.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <img class="img-fluid mb-3" src="/static/Imagens/ont_tplink_c5_config_pppoe4.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                <p>
+                    Após checar todas as configurações adicionais, basta navegar até o final da página, e clicar em <b>salvar</b>.
+                </p>
+
+
                 <h2 id="Sumario-5">Habilitar Acesso Remoto</h2>
                 <hr>
 
@@ -139,6 +181,24 @@
 
                 <h2 id="Sumario-7">Acionamento Manual da Telefonia</h2>
                 <hr>
+
+                <p>
+                    Acesse a aba “Avançada”, depois vá para “Telefonia”. Em seguida, acesse a aba “Número de Telefone” e configure os seguintes parâmetros:
+                </p>
+                <ul>
+                    <li>Número de Telefone: Insira o número do cliente.</li>
+                    <li>Endereço de Registro: <span class="criptografado" value="U2FsdGVkX1+4IdNCDw5fQXLgnz8CnHVRHWROuVGASrU="><kbd>Sensível</kbd></span></li>
+                    <li>ID de Autenticação: O número de telefone do cliente.</li>
+                    <li>Senha: <span class="criptografado" value="U2FsdGVkX1/kiDqf2tsHvSCPoBCpJWOO4NFK18Jh7uM="><kbd>Sensível</kbd></span></li>
+                </ul>
+                <img class="img-fluid mb-3 rounded-3" src="/static/Imagens/ont_tplink_config_telefonia1.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                <div class="alert alert-primary mt-3" role="alert">
+                    <h5 class="alert-heading">📋 Nota:</h5>
+                    <p>
+                        A aba “Avançado” também não requer alterações nesta etapa.
+                    </p>                
+                </div>
 
                 <h2 id="Sumario-8">Auto Reinicio</h2>
                 <hr>
@@ -151,10 +211,17 @@
                     Na janela que aparecer, você precisa clicar no checkbox "<b>Habilitar</b>" e configurar com os parâmetros desejados. Normalmente configuramos para reiniciar a cada uma semana as 3h00 da manhã:
                 </p>
 
-                <img class="img-fluid" src="/static/Imagens/configuracaotplinkautoreiniciaio.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                <img class="img-fluid mb-3 rounded-3" src="/static/Imagens/configuracaotplinkautoreiniciaio.webp" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
 
                 <h2 id="Sumario-9">Desabilitar EWAN</h2>
                 <hr>
+
+                <p>
+                    Essa é uma opção presente apenas na ONT TPLink, onde devemos desabilitar a porta WAN para que ela deixar a porta LAN 1 Habilitada. Caso não seja feito o processo, você não irá conseguir usar a LAN 1 para conectar ativos. 
+                </p>
+
+
+
 
                 <h2 id="Sumario-10">Desabilitar Linha Voip</h2>
                 <hr>
