@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Página ONT Vsol</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/configuracaorouter.html">Configuração de Router</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ONT Vsol</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <h1 class="mb-3">ONT Vsol Huawei</h1>
+            <hr>
+
+            <div class="col-sm-3">
+                <img class="img-fluid rounded-4" src="/static/Imagens/batch_g547.webp" alt="Imagem ilustrativa de um Router">
+                <p class="mt-3 text-center text-uppercase"><b>ONT Vsol</b></p>
+                <p>
+                    <b>Fontes:</b>1.5A 12V <br>
+                    <b>CREDENCIAIS RESETADOS DE FABRICA</b><br>
+                    <b>Login:</b> <span class="criptografado" value="U2FsdGVkX18V/RgC+zIy7m3mfsepcpC08K74/FbEudc="><kbd>Sensível</kbd></span> <br>
+                    <b>Senha:</b> <span class="criptografado" value="U2FsdGVkX1/p59pD/X8ebaF20pzG2U89qAmCBdoHaFs="><kbd>Sensível</kbd></span> <br>
+                    <b>CREDENCIAIS APÓS PROVISIONAMENTO AUTOISP</b><br>
+                    <b>Login:</b> <span class="criptografado" value="U2FsdGVkX18V/RgC+zIy7m3mfsepcpC08K74/FbEudc="><kbd>Sensível</kbd></span> <br>
+                    <b>Senha:</b> <span class="criptografado" value="U2FsdGVkX198tPzJ3Z45U8sNbXQ03GEHq26xgC1Klww="><kbd>Sensível</kbd></span>
+                </p>     
+                     
+                <div class="copy-container d-flex justify-content-between align-items-center">
+                    <div>
+                        <b>IP ONT:</b> <span class="text-to-copy">192.168.1.1</span>
+                    </div>
+
+                    <button class="btn btn-outline-dark copy-btn btn-sm m-1" type="button"
+                            title="Copiar para a área de transferência">
+                        <i class="bi bi-clipboard"></i> <span>Copiar</span>
+                    </button>
+                </div>
+                
+                <br>
+                
+                <!--
+                <div class="d-grid">
+                    <a class="btn btn-sm btn-outline-dark btn-block" href="/static/atualizações/XX530vV2v2_0.6.0_3.1.10_UP_BOOT_agc3000(251231)_2025-12-31_13.45.39.bin">
+                        BIN de Atualização ONT 530 V2
+                    </a>
+                </div>
+                -->
+
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-1" class="text-decoration-none text-body">Informações Técnicas</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-2" class="text-decoration-none text-body">Provisionamento ONT VSOL</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-3" class="text-decoration-none text-body">Configuração PPPoE</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-4" class="text-decoration-none text-body">Configurando rede Wireless</a>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <a href="#Sumario-5" class="text-decoration-none text-body">Gerenciamento Remoto</a>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div class="col-sm-9">
+                <!-- -------------------- INICO DA PÁGINA ---------------------- -->
+
+                <h2 id="Sumario-1">Informações Técnicas</h2>
+
+                <ul> 
+                    <li>Velocidades Wi-Fi de até 1500 Mbps, ele também suporta a tecnologia Wi-Fi 6 IEEE 802.11b/g/n/ac/ax</li>
+                    <li>4 Portas Lan GB</li>
+                    <li>1USB3.0+CATV+1Porta RJ11 para telefonia</li>
+                </ul>
+            
+                <h2 id="Sumario-2">Provisionamento ONT VSOL</h2>
+
+                <p><b>1° Passo</b> – Inicie o provisionamento na opção <i>“Atendimento”</i>;</p>
+                <p><b>2° Passo</b> – Insira o código da conexão a ser provisionada;</p>
+                <p><b>3° Passo</b> – Escolha <i>“Nova instalação”</i> e confirme para iniciar!;</p>
+                <p><b>4° Passo</b> – Confirme o endereço da instalação;</p>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123218.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123222.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123225.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123229.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                </div>
+            
+                <p><b>5° Passo</b> – Para identificar o equipamento pode inserir o Mac manualmente ou ler o código de barra;</p>
+
+                <div class="alert alert-warning mt-3" role="alert">
+                    <h5 class="alert-heading">⚠ Atenção</h5>
+                    <p>
+                        Confirme sempre o Mac que começa com o GPON. Basta confirmar depois disso!
+                    </p>                
+                </div>
+         
+                <p><b>6° Passo</b> – Escolha o modelo VSOL;</p>
+                <p><b>7° Passo</b> – Configure a rede Wireless que deseja ao cliente(<i>SSID E SENHA</i>);</p>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123514.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123518.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123521.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123525.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                </div>
+           
+                <p><b>8° Passo</b> – Após confirmar, o fluxo de provisionamento se iniciará até levantar o sinal óptico da fibra; </p>
+
+                <p><b>9° Passo</b> – Após o fluxo terminar basta iniciar a configuração Wireless conectando na rede do roteador resetado (<i>Por ser dualband será apresentado a rede 2.4Ghz e 5Ghz iniciando o nome por FTTH</i>). A senha estará na etiqueta em baixo da ONT!;</p>
+
+                <p><b>10° Passo</b> – Volte ao app autoisp para iniciar o fluxo de configuração da ONT, assim que o fluxo concluir a configuração volte aos dados móveis e finalize o processo;</p>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123905.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123909.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123912.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528123916.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                    </div>
+                </div>
+                
+                <p>Após o fluxo ser finalizado a ONT irá reiniciar automaticamente, aguarde entre 2 a 3 minutos até as luzes se estabilizarem e confirme se aparece a rede WiFi do cliente!</p>
+
+                
+                <h2 id="Sumario-3">Configuração PPPoE</h2>
+
+                <p>
+                    Vá em Rede -> WAN, deixe em (<i>Adicionar Nova Wan , Modo Route e PPPoE</i>) Ligar a chave <i>“Habilitado Vlan”</i>.
+                </p>
+
+                <p>
+                    Inserir a vlan do pon além do Nome de usuário e senha do PPPoe. No fim da página tem o botão de “ENVIAR” que salva as informaçõe!
+                </p>
+                
+                <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528124635.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+                
+                <h2 id="Sumario-4">Configurando rede Wireless</h2>
+
+                <p>
+                    Vá em Rede ->2.4 ou 5G para inserir as credenciais novas! Neste campo é possível ajustar a Largura de banda também!
+                </p>
+
+                <p>
+                    No fim da página tem o botão de “ENVIAR” que salva as informações!
+                </p>
+
+                <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528124733.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                <h2 id="Sumario-5">Gerenciamento Remoto</h2>
+
+                <p>
+                    Em Segurança – Privilégios de login , deixar o Http e Https com a LAN ativada
+                </p>
+                
+                <img class="img-fluid mb-3 rounded-3 shadow" src="/static/Imagens/Pasted image 20260528124823.png" alt="Imagem ilustrativa da configuração de auto reinicio em ONT TP-Link">
+
+                <!-- ----------------------- FIM PAGINA ----------------------- -->
+
+                <btn-topo></btn-topo>
+
+            </div>
+        </div>
+    </div>
+    
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="28/05/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+    <script src="/src/copiar_transferencia.js"></script>
+    <script src="/app.js"></script>
+    <script src="/src/crypto-js.min.js"></script>
+    <script src="/src/criptografia.js"></script>
+</body>
+
+</html>
