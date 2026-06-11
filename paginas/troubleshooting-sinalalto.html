@@ -126,9 +126,70 @@
                 O encaminhamento para externa é feito na finalização da OS. Após isso, com o nome do cliente em mãos, envie uma mensagem no grupo "<i>Etecc - Equipe Técnica</i>" com a seguinte mensagem: "<i>Cliente nome_cliente, Necessário encaminhar Equipe Externa</i>".
             </p>
 
+            <h2>Complemento de Sinal de Fibra</h2>
+            <img class="rounded-4 img-fluid mb-3" src="/static/Imagens/Pasted image 20260602144653.png">
+
+            <h3>O Cenário Padrão (Downstream vs. Upstream)</h3>
+
+            <p>
+                Quando você mede -15 dBm a -25 dBm no seu <i>power meter</i> na frequência de <b>1490nm</b>, você está medindo o <b>Downstream</b> (<i>o sinal que sai da OLT e chega na casa do cliente</i>). Esse sinal geralmente vem forte porque as OLTs têm lasers potentes.
+            </p>
+
+            <p>
+                Porém, a comunicação é uma via de mão dupla. A ONT (<i>o roteador/modem do cliente</i>) precisa responder na frequência de <b>1310nm</b> (<b>Upstream</b>), enviando o sinal de volta para a OLT.
+            </p>
+
+            <h3>Por que uma diferença grande (<i>como > 5 dB</i>) é um problema?</h3>
+
+            <p>
+                Em uma rede de fibra perfeita, a perda óptica (<i>atenuação</i>) que o sinal sofre para <i>ir</i> deve ser praticamente a mesma que ele sofre para <i>voltar</i>. Se o sinal chega na ONT com -20 dBm, o sinal da ONT deveria chegar na OLT com uma potência proporcionalmente saudável (<i>geralmente calculada dentro do orçamento de potência da rede</i>).
+            </p>
+
+            <p>
+                Se houver uma <b>discrepância muito grande</b> (<i>uma assimetria onde um lado recebe bem e o outro recebe muito mal</i>), temos um problema grave. É aí que entra a regra prática dos "5 dBm".
+            </p>
+
+            <h4>1. Macrocurvaturas e Conectores Sujos</h4>
+
+            <p>
+                A atenuação na fibra muda dependendo do comprimento de onda. A frequência de 1310nm (<i>Upstream</i>) e a de 1490nm (<i>Downstream</i>) se comportam de forma diferente diante de problemas físicos:
+            </p>
+
+            <ul>
+                <li>Se uma fibra sofrer uma <b>curvatura acentuada (<i>macrocurvatura</i>)</b> ou tiver um <b>conector sujo</b>, ela pode atenuar drasticamente o sinal de Upstream (<i>1310nm</i>) e afetar menos o de Downstream (<i>1490nm</i>).</li>
+                <li>O resultado? No seu power meter o sinal parece "lindo" (-18 dBm), mas na OLT o sinal da ONT chega "morto" (<i>-26 dBm</i>).</li>
+            </ul>
+            <h4>2. O Problema da ONT "Gritando" (<i>Laser Degradado</i>)</h4>
+
+            <p>
+                As ONTs têm uma potência de transmissão padrão (<i>geralmente entre +0.5 dBm e +5 dBm</i>). Se o laser da ONT estiver degradado, ela vai enviar um sinal fraco. Mesmo que o sinal que _chega_ nela (<i>1490nm</i>) seja ótimo, o que <i>sai</i> dela não tem força para chegar na OLT. Se a diferença entre o que a OLT espera receber e o que ela realmente recebe passar de um limite (<i>geralmente uma variação de 5 dB do padrão calculado</i>), a porta PON começa a apresentar perda de pacotes ou desconexões.
+            </p>
+
+            <h2>Resumo da Ópera</h2>
+
+            <p>Essa informação dos -5dBm é um ótimo "macete" de campo. Se você olhar no sistema da OLT e notar que:</p>
+            <ul>
+                <li>O Rx da ONT (<i>o que ela recebe</i>) está em <b>-18 dBm</b>.</li>
+                <li>O Rx da OLT (<i>o que a OLT recebe daquela ONT</i>) está em <b>-25 dBm</b>.</li>
+            </ul>
+            <p>Essa diferença de <b>7 dB</b> (<i>que passa dos 5 dB de tolerância saudável de assimetria</i>) mata o desempenho da conexão. O cliente vai sofrer com quedas e lentidão, mesmo que o seu power meter na casa dele diga que o sinal está "perfeito".</p>
+
+            <p><b>O que fazer nesses casos?</b> O passo a passo para essa etapa é simples:</p>
+            <ol>
+                <li>Faça uma limpeza geral na emenda da ONU/ONT, pontas do Patchcord e Drop;</li>
+                <li>Procure por atenuação visível no drop/patchcord;</li>
+                <li>Realize a troca do conector de Fibra interno;</li>
+                <li>Troque a ONU/ONT pois ela pode estar com o laser cansado pedindo troca;</li>
+                <li>Caso nada disso resolva, pode ser um conector sujo na caixa de atendimento (CTO), fusão ruim que gerou reflexão (ORL alta). </li>
+            </ol>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <h5 class="alert-heading">🚨 Caso nenhum dos passos acima resolva, não encaminhe externa, deixe apenas informado na OS essa diferença!</h5>             
+            </div>
+
             <h2>Fluxograma</h2>
             <img src="/static/Imagens/fluxogramas/Fluxo da Supervisão-Fluxo de Sinal Alto.png" class="mx-auto d-block">
-
+            
 
 
 

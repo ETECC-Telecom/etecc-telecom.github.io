@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Troubleshooting - Segurança Wifi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/troubleshooting.html">Troubleshooting</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Segurança Wifi</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Requisitos de Segurança para redes Wifi</h1>
+            <hr>
+            <p><b>Empresa:</b> Int6 Tecnologia</p>
+            <p><b>Classificação:</b> Documento Público - Em conformidade com as normas ANATEL</p>
+
+            <h2>Objetivo</h2>
+
+            <p>
+                Este documento estabelece as diretrizes para a implementação de novas políticas de complexidade de senha para redes sem fio (<i>Wifi</i>) em nossos sistemas e equipamentos. O objetivo é mitigar vulnerabilidades e assegurar a conformidade com as diretrizes de segurança cibernética vigentes.
+            </p>
+
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Conformidade Regulatória</h5>
+                <p>
+                    A presente adequação baseia-se nas regulamentações da Agência Nacional de Telecomunicações (<i>ANATEL</i>), especificamente no que tange aos requisitos de segurança cibernética para equipamentos de rede.
+                </p>
+                <p>
+                    Em conformidade com o <b>Ato nº 77/2021</b> (<i>Requisitos Operacionais de Segurança Cibernética para Equipamentos para Telecomunicações</i>), os equipamentos devem possuir mecanismos que impeçam o uso de senhas fracas ou padrões de fábrica facilmente previsíveis, visando a proteção dos dados dos usuários e a integridade da infraestrutura de rede.              
+                </p>
+            </div>
+
+            <h2>Novas Regras de Complexidade</h2>
+
+            <p>
+                A partir da implementação desta atualização, o sistema passará a rejeitar senhas para redes Wifi que não atendam aos seguintes critérios mínimos de "<i>senha forte</i>":
+            </p>
+            
+            <table class="table table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <th>Requisito</th>
+                    <th>Descrição</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Comprimento Mínimo</b></td>
+                    <td>Mínimo de 8 (oito) caracteres.</td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td><b>Variedade de Caracteres</b></td>
+                    <td>Uso obrigatório de ao menos três categorias: letras maiúsculas, minúsculas, números e caracteres especiais.</td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td><b>Bloqueio de Sequências</b></td>
+                    <td>Proibição de sequências óbvias (ex: 12345678, qwerty).</td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td><b>Diferenciação do SSID</b></td>
+                    <td>A senha não poderá conter o nome do SSID.</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>Justificativa Técnica</h2>
+
+            <p>
+                Senhas fracas são o principal vetor de ataques do tipo força bruta (_brute-force_). Ao limitar o uso de credenciais de baixa entropia, reduzimos drasticamente o risco de:
+            </p>
+            <ul>
+                <li>Acessos não autorizados;</li>
+                <li>Interceptação de tráfego;</li>
+                <li>Comprometimento de dispositivos conectados à rede local.</li>
+            </ul>
+            <h2>Cronograma de Implementação</h2>
+            <ul>
+                <li><b>Novas configurações e alterações:</b> As novas restrições serão aplicadas de forma imediata para todas as novas configurações de rede e alterações de senhas existentes.</li>
+                <li><b>Dispositivos legados:</b> Dispositivos atualmente configurados com senhas fora do padrão serão atualizados conforme atualizações de manutenção ou novas configurações.</li>
+            </ul>
+
+            <h2>Retornos no Aplicativo</h2>
+
+            <p>
+                O APP de provisionamentos INT6 estará aplicando mensagens de descrição sobre os requisitos de senhas exigidos, podendo ter variações entre modelos de CPEs.
+            </p>
+
+            <div class="alert alert-danger mt-3" role="alert">
+                <p>
+                    🚨 Bloqueio por Descumprimento No caso em que as senhas não atenderem aos requisitos, o aplicativo irá exibir uma mensagem de erro e <b>não permitirá a continuação do processo de provisionamento</b> até a adequação aos requisitos.
+                </p>                
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="/static/Imagens/imagens_troubleshooting/Pasted image 20260611095148.png" class="mx-auto d-block">
+                </div>
+                <div class="col-sm-6">
+                    <img src="/static/Imagens/imagens_troubleshooting/Pasted image 20260611095153.png" class="mx-auto d-block">
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="11/06/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
