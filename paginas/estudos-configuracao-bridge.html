@@ -67,21 +67,36 @@
             <h2>Passo a Passo</h2>
 
             <p>
-                A configuração prática, demonstrada em um roteador TP-Link, segue estas etapas:
+                Para essa configuração, antes de cabear vamos configurar o router. Então inicie configurando o Wifi. 
             </p>
-            <ol>
-                <li><b>Identificação do Gateway:</b> Abrir o <b>CMD</b> (Prompt de Comando) e digitar o comando <kbd>ipconfig</kbd> para localizar o IP de acesso do roteador (<i>ex: 192.168.2.1</i>).</li>
-                <li><b>Acesso ao Setup:</b> Digitar o IP no navegador e inserir as credenciais de acesso (<i>padrão: admin/admin</i>).</li>
-                <li><b>Localização do DHCP:</b> Navegar até o menu de configurações de <b>DHCP</b>.</li>
-                <li><b>Desativação do Servidor:</b> Alterar o status do DHCP de <i>Enabled</i> (<i>Habilitado</i>) para <i>Disabled</i> (Desabilitado).</li>
-                <li><b>Finalização:</b> Salvar as alterações e reiniciar o equipamento conforme solicitado pelo sistema.</li>
-            </ol>
+
+            <p>
+                Agora vá na opção de <b>DHCP</b> do Router e desabilite o mesmo. Assim ele irá passar a não entregar mais IPs para os dispositivos conectados a ele. Basta desabilitar ele na página do Router.
+            </p>
+
+            <p>
+                Agora vá na parte de <b>Redes -> LAN</b> para que possamos alterar o IP de LAN do router. Nessa página da LAN procure algo relacionado a "*Endereço IP*" que represente o Getway do router que estamos configurando, que nesse caso é <b>192.168.0.1</b>, e altere para <b>192.168.0.250</b>. Assim nosso router principal terá o IP 192.168.0.1, e como sabemos que a mascara de sub-rede permite alterar apenas o Final do IP, basta colocar o valor da faixa, que nesse caso, é <b>250</b>. Escolhemos esse valor porque dificilmente outros dispositivos da casa irão pegá-lo. 
+            </p>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 IPs</h5>
+                <p>
+                    Se o IP do router do primeiro ponto for <b>192.168.3.1</b>, e a do Router em Bridge for <b>192.168.0.1</b>, você terá que alterar na LAN para <b>192.168.3.250</b>, para que esteja dentro da faixa de IP do router principal.
+                </p>                
+            </div>
+
+            <p>
+                Após aplicar essa Configuração do IP, provavelmente o Router irá reiniciar para aplicar as configurações. Nesse processo iremos conectar os cabos UTPs corretamente para funcionar a configuração. A única diferença na parte da ligação física é a conexão que ao invés de ir na WAN do AP, irá para uma LAN:
+            </p>
+
+            <img src="/static/Imagens/estudos/Pasted image 20260924171128.png" class="mx-auto d-block">
+
 
             <h2>Detalhes Técnicos e Operacionais</h2>
             <ul>    
                 <li><b>Comandos:</b> <kbd>ipconfig</kbd> no terminal para diagnóstico de rede.</li>
                 <li><b>Endereçamento:</b> Exemplo de faixa de IP /24 (<i>192.168.0.2 a 192.168.0.99</i>) liberada pela ONU.</li>
-                <li><b>Portas Físicas:</b> O link de internet deve entrar na porta <b>WAN</b> (<i>identificada pelo símbolo "@" ou "Internet"</i>) do roteador.</li>
+                <li><b>Portas Físicas:</b> O link de internet deve entrar na porta <b>LAN</b> do roteador em modo Ponte.</li>
                 <li><b>Acesso Pós-Bridge:</b> Após desativar o DHCP, o acesso ao setup do roteador secundário só é possível via configuração de IP manual na placa de rede do computador. Você pode consultar como realizar essa configuração aqui no guia Telecom no final da página de Configuração de Router</li>
             </ul>
             <h2>Itens, Recursos e Materiais</h2>
