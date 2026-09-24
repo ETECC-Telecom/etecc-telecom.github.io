@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Estudos - Configuração de Bridge (Ponte)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/static/favicon.svg">
+    <script type="module" src="/src/components/libEtecc.js"></script>
+    <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/src/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <etecc-head></etecc-head>
+
+    <etecc-navbar></etecc-navbar>
+
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/paginas/estudos.html">Estudos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Configuração de Roteador em Modo Bridge</li>
+            </ol>
+        </nav>
+        <div class="row">
+
+            <h1>Configuração de Roteador em Modo Bridge</h1>
+            <hr>
+            
+            <p>
+                O conteúdo aborda a configuração de roteadores no modo ponte (<b>Bridge</b>), explicando a lógica de funcionamento e a necessidade técnica dessa alteração em redes domésticas ou empresariais. O objetivo principal é otimizar a conexão, eliminando conflitos de endereçamento e permitindo que múltiplos equipamentos operem em uma única rede lógica unificada.
+            </p>
+            <h2>Desenvolvimento do Conteúdo</h2>
+
+            <img src="/static/Imagens/estudos/Pasted image 20260924153314.png" class="mx-auto d-block">
+
+            <p>
+                Em uma rede convencional de fibra óptica, é comum haver uma <b>ONU/ONT</b> (<i>modem da operadora</i>) e um roteador particular. Quando ambos operam como roteadores, criam-se duas redes distintas (<i>duas faixas de IP diferentes</i>), o que gera problemas de comunicação entre dispositivos e falhas de <b>NAT</b> (<i>estrito ou moderado</i>) em consoles de jogos.
+            </p>
+
+            <img src="/static/Imagens/estudos/Pasted image 20260924154948.png" class="mx-auto d-block">
+
+            <p>
+                Ao configurar o modo Bridge, o roteador secundário deixa de realizar o roteamento e o gerenciamento de IPs (<i>DHCP</i>), tornando-se uma extensão física da rede principal. Isso permite que todos os dispositivos, independentemente de onde estejam conectados, recebam IPs na mesma faixa e consigam se comunicar diretamente.
+            </p>
+
+             <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Conceitos-Chave</h5>
+                <ul>
+                    <li><b>Modo Bridge (Ponte):</b> Configuração que torna o roteador um repetidor transparente, sem gerenciar rotas.</li>
+                    <li><b>DHCP:</b> Protocolo que distribui endereços IP automaticamente; deve ser desabilitado no roteador secundário para o modo Bridge funcionar.</li>
+                    <li><b>ONU/ONT:</b> Equipamento que converte o sinal de luz da fibra óptica em pulsos elétricos para o roteador.</li>
+                    <li><b>Gateway:</b> Ponto de saída da rede; em modo Bridge, o Gateway de todos os dispositivos passa a ser apenas o modem principal.           </li>
+                </ul>
+            </div>
+            
+            <h2>Passo a Passo</h2>
+
+            <p>
+                A configuração prática, demonstrada em um roteador TP-Link, segue estas etapas:
+            </p>
+            <ol>
+                <li><b>Identificação do Gateway:</b> Abrir o <b>CMD</b> (Prompt de Comando) e digitar o comando <kbd>ipconfig</kbd> para localizar o IP de acesso do roteador (<i>ex: 192.168.2.1</i>).</li>
+                <li><b>Acesso ao Setup:</b> Digitar o IP no navegador e inserir as credenciais de acesso (<i>padrão: admin/admin</i>).</li>
+                <li><b>Localização do DHCP:</b> Navegar até o menu de configurações de <b>DHCP</b>.</li>
+                <li><b>Desativação do Servidor:</b> Alterar o status do DHCP de <i>Enabled</i> (<i>Habilitado</i>) para <i>Disabled</i> (Desabilitado).</li>
+                <li><b>Finalização:</b> Salvar as alterações e reiniciar o equipamento conforme solicitado pelo sistema.</li>
+            </ol>
+
+            <h2>Detalhes Técnicos e Operacionais</h2>
+            <ul>    
+                <li><b>Comandos:</b> <kbd>ipconfig</kbd> no terminal para diagnóstico de rede.</li>
+                <li><b>Endereçamento:</b> Exemplo de faixa de IP /24 (<i>192.168.0.2 a 192.168.0.99</i>) liberada pela ONU.</li>
+                <li><b>Portas Físicas:</b> O link de internet deve entrar na porta <b>WAN</b> (<i>identificada pelo símbolo "@" ou "Internet"</i>) do roteador.</li>
+                <li><b>Acesso Pós-Bridge:</b> Após desativar o DHCP, o acesso ao setup do roteador secundário só é possível via configuração de IP manual na placa de rede do computador. Você pode consultar como realizar essa configuração aqui no guia Telecom no final da página de Configuração de Router</li>
+            </ul>
+            <h2>Itens, Recursos e Materiais</h2>
+            <ul>
+                <li><b>ONU/ONT:</b> Equipamento terminal de fibra óptica.</li>
+                <li><b>Cabo de Fibra Óptica:</b> Meio de transmissão que trafega sinal de luz.</li>
+                <li><b>Roteador Particular:</b> Dispositivo a ser configurado (ex: modelo TP-Link).</li>
+                <li><b>Dispositivos Conectados:</b> Notebooks, smartphones, consoles (<i>Xbox, PS4, PS5</i>) e Smart TVs.</li>
+            </ul>
+            <h2>Exemplos e Aplicações</h2>
+
+            <p>
+                Um cenário típico de aplicação é uma residência onde o sinal de Wi-Fi da ONU da operadora é fraco. Adiciona-se um roteador potente via cabo. Sem o modo Bridge, o celular conectado à ONU não "enxerga" a impressora conectada ao roteador. Com o Bridge, ambos ficam na mesma rede lógica (ex: rede 192.168.0.X) e a comunicação é plena.
+            </p>
+            
+            <h2>Insights Importantes</h2>
+
+            <div class="alert alert-primary mt-3" role="alert">
+                <h5 class="alert-heading">📋 Dica de Configuração</h5>
+                <p>
+                    Muitos roteadores não possuem um botão direto escrito "<i>Modo Bridge</i>". Na prática, desabilitar o servidor DHCP e conectar o cabo vindo do modem principal em uma porta LAN (<i>ou WAN, dependendo do modelo</i>) produz exatamente o efeito de ponte.
+                </p>                
+            </div>
+            
+            <h2>Conclusão</h2>
+
+            <p>
+                A utilização do modo Bridge é a solução técnica recomendada para evitar o "<i>Double NAT</i>" e simplificar a topologia da rede doméstica. Embora exija o cuidado de configurar IPs manuais para manutenções futuras, o benefício na estabilidade e na integração dos dispositivos justifica o procedimento.
+            </p>
+            
+            <h2>Resumo Rápido</h2>
+            <div class="alert alert-secondary mt-3" role="alert">
+                <h5 class="alert-heading">❞ Resumo Para transformar um roteador em Bridge:</h5>
+                <p>
+                    Acesse as configurações via IP, desabilite o servidor <b>DHCP</b>, salve e reinicie. Isso unifica a rede sob o comando da ONU principal, resolve conflitos de IP e melhora a experiência em jogos e troca de arquivos local.
+                </p>                
+            </div>
+
+
+            <h2>Chamadas</h2>
+
+
+           
+        </div>
+    </div>
+    <etecc-revisao version="001" author="Raphael dos Anjos" date="24/09/2026"></etecc-revisao>
+
+    <etecc-footer></etecc-footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
+
